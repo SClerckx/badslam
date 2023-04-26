@@ -24,6 +24,10 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 
 include(CheckLanguage)
 
+set(CMAKE_PREFIX_PATH "D:/Bladesense")
+list(APPEND CMAKE_PREFIX_PATH "D:/Bladesense/glew-2.1.0-win32")
+list(APPEND CMAKE_PREFIX_PATH "D:/Bladesense/vcpkg/installed")
+
 
 ################################################################################
 # Dependencies.
@@ -68,14 +72,30 @@ find_package(Threads REQUIRED)
 find_package(OpenGL REQUIRED)
 
 # Eigen (external)
+#set(Eigen3_DIR "D:/Bladesense/Eigen/eigen-3.3.9/eigen-3.3.9/out/build/x64-Debug")
+set(Eigen3_DIR "D:/Bladesense/vcpkg/installed/x64-windows/share/eigen3")
+#list(APPEND CMAKE_PREFIX_PATH "D:/Bladesense/Eigen/eigen-3.3.9/eigen-3.3.9")
 find_package(Eigen3 REQUIRED NO_MODULE)
 
+#list(APPEND CMAKE_PREFIX_PATH "D:/Bladesense/Eigen/eigen-3.3.9")
+#find_package(Eigen3 3.3.9 REQUIRED NO_MODULE)
+
+#set(EIGEN3_INCLUDE_DIR "D:/Bladesense/Eigen/eigen-3.3.9")
+#include_directories(${EIGEN3_INCLUDE_DIR})
+
+#set(Boost_INCLUDE_DIR = "D:/Bladesense/boost_1_81_0")
+set(BOOST_ROOT "D:/Bladesense/boost_1_81_0")
+set (DBoost_DEBUG=ON)
 # Boost (external)
 if (POLICY CMP0074) # get rid of annoying warning
   cmake_policy(SET CMP0074 NEW)
 endif()
-find_package(Boost COMPONENTS serialization filesystem system REQUIRED)
+#find_package(Boost COMPONENTS serialization filesystem system REQUIRED) https://stackoverflow.com/questions/71610458/could-not-find-boost-missing-system-found-suitable-versihow-on-1-78-0-min
+#Like Tsyvarev said, since version 1.69 if you are using only system or any other header-only component (not requiring build) you must remove keyword COMPONENT
+find_package(Boost REQUIRED)
 
+set(ZLIB_LIBRARY = "D:/Bladesense/zlib1213/zlib-1.2.13")
+set(ZLIB_INCLUDE_DIR = "D:/Bladesense/zlib1213/zlib-1.2.13/out/build/x64-Debug")
 # Loguru (packaged)
 add_library(loguru SHARED
   libvis/third_party/loguru/loguru.cpp
@@ -118,8 +138,24 @@ enable_testing()
 add_subdirectory(libvis/third_party/libpng)
 set_target_properties(png png_static genfiles PROPERTIES FOLDER "libvis/third_party/png")
 
+#set(GLEW_INCLUDE_DIR "D:/Bladesense/glew-2.1.0-win32/glew-2.1.0/include")
+#set(GLEW_LIBRARY "D:/Bladesense/glew-2.1.0-win32/glew-2.1.0/lib/Release/x64/glew32.lib") # Assuming you're using the release version and x64 architecture
+#set(GLEW_LIBRARIES ${GLEW_LIBRARY})
+
+#include_directories(${GLEW_INCLUDE_DIR})
+
+#target_link_libraries(badslam ${GLEW_LIBRARIES})
+
+
 # GLEW (external, required)
-find_package(GLEW REQUIRED)
+#set(GLEW_INCLUDE_DIRS = "D:/Bladesense/glew-2.1.0-win32/glew-2.1.0/bin/Release/x64")
+#https://stackoverflow.com/questions/34230853/how-to-fix-could-not-find-glew-missing-glew-include-dir-glew-library
+#set(GLEW_INCLUDE_DIR =  "D:/Bladesense/glew-2.1.0-win32/glew-2.1.0/include")
+#set(GLEW_LIBRARY =  "D:/Bladesense/glew-2.1.0-win32/glew-2.1.0/lib")
+#set(GLEW_LIBRARIES = "D:/Bladesense/glew-2.1.0-win32/glew-2.1.0")
+#set(GLEW_LIBRARY "D:/Bladesense/glew-2.1.0-win32/glew-2.1.0/lib/Release/x64/glew32.lib") # Assuming you're using the release version and x64 architecture
+#set(GLEW_LIBRARIES ${GLEW_LIBRARY})
+find_package(GLEW REQUIRED) #was find_package(GLEW REQUIRED)
 
 # Vulkan (external, optional)
 set(VULKAN_PATH "" CACHE PATH "Set this to the path of the Vulkan SDK installation (the directory containing include and lib) if installed locally, otherwise leave this empty.")
@@ -140,6 +176,9 @@ set(CMAKE_AUTOMOC ON)
 # Instruct CMake to run rcc (resource compiler) automatically when needed.
 set(CMAKE_AUTORCC ON)
 
+#find_package(Qt5 5.8 REQUIRED COMPONENTS Core OpenGL Widgets)
+#find_package(Qt5 5.8 REQUIRED COMPONENTS Core OpenGL Widgets)
+set(Qt5_DIR "D:/Bladesense/vcpkg/installed/x64-windows/share/cmake/Qt5")
 find_package(Qt5 5.8 REQUIRED COMPONENTS Core OpenGL Widgets)
 
 if (UNIX AND NOT APPLE)
@@ -155,7 +194,9 @@ if (TARGET Qt5::Core AND UNIX)
 endif()
 
 # OpenCV (external, required)
-find_package(OpenCV 3.1.0 REQUIRED)
+#find_package(OpenCV 3.1.0 REQUIRED)
+set(OpenCV_DIR "D:/Bladesense/vcpkg/installed/x64-windows/share/opencv3")
+find_package(OpenCV REQUIRED)
 
 # Settings.
 if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUXX)

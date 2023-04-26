@@ -4,8 +4,11 @@ if (CMAKE_CUDA_COMPILER)
   
   # Dependencies
   find_package(SuiteSparse REQUIRED)
+  set(DLib_DIR "D:/Bladesense/DLib/out/build/x64-Debug")
   find_package(DLib REQUIRED)
+  set(Eigen3_DIR "D:/Bladesense/vcpkg/installed/x64-windows/share/eigen3")
   find_package(Eigen3 REQUIRED)
+  set(g2o_DIR "D:/Bladesense/vcpkg/installed/x64-windows/share/g2o")
   find_package(g2o REQUIRED)
   find_package(OpenGL REQUIRED)
   # Cross-platform threading. See:
