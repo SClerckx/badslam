@@ -54,6 +54,8 @@ message(STATUS "Target name: ${my_target_name}")
 #       be known to run on exclusively, or a broader set of PTX architectures
 #       in case the binary is intended for distribution.
 check_language(CUDA)
+set(CUDATOOLKITDIR "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.1")
+set(CMAKE_CUDA_COMPILER "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.1/bin/nvcc.exe")
 if (CMAKE_CUDA_COMPILER)
   enable_language(CUDA)
   
@@ -565,21 +567,20 @@ add_executable(libvis_test
 )
 set_property(TARGET libvis_test PROPERTY FOLDER "libvis")
 
-#find_library(CUDA_LIB_ABS_PATH
- #            NAMES cuda.lib
- #            PATHS "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.1/lib/x64"
- #            NO_DEFAULT_PATH)
-#if(NOT CUDA_LIB_ABS_PATH)
- # message(FATAL_ERROR "cuda.lib not found ${CUDA_TOOLKIT_ROOT_DIR} path: ${CUDA_LIB_ABS_PATH}")
-#endif()
-#target_link_libraries(libvis_test ${CUDA_LIB_ABS_PATH})
+find_library(CUDA_LIB_ABS_PATH
+             NAMES cuda.lib
+             PATHS "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.1/lib/x64"
+             NO_DEFAULT_PATH)
+if(NOT CUDA_LIB_ABS_PATH)
+  message(FATAL_ERROR "cuda.lib not found ${CUDA_TOOLKIT_ROOT_DIR} path: ${CUDA_LIB_ABS_PATH}")
+endif()
 
 target_link_libraries(libvis_test PRIVATE
   gtest
   Threads::Threads
   libvis
-  cublas  # TODO: currently required because of lm_optimizer.h. That should not be necessary.
-  #${CUDA_LIB_ABS_PATH}
+  #cublas  # TODO: currently required because of lm_optimizer.h. That should not be necessary.
+  ${CUDA_LIB_ABS_PATH}
 )
 target_include_directories(libvis_test PRIVATE
   ${gtest_SOURCE_DIR}/include
