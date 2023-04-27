@@ -5,6 +5,8 @@ if (CMAKE_CUDA_COMPILER)
   # Dependencies
   find_package(SuiteSparse REQUIRED)
   set(DLib_DIR "D:/Bladesense/DLib/out/build/x64-Debug")
+  set(DLib_INCLUDE_DIR "D:/Bladesense/DLib/include")
+  set(DLib_LIBRARY "D:/Bladesense/DLib/out/build/x64-Debug/DLib.lib")
   find_package(DLib REQUIRED)
   set(Eigen3_DIR "D:/Bladesense/vcpkg/installed/x64-windows/share/eigen3")
   find_package(Eigen3 REQUIRED)
@@ -22,6 +24,7 @@ if (CMAKE_CUDA_COMPILER)
   add_subdirectory(third_party/DBoW2)
   set_target_properties(DBoW2 Dependencies PROPERTIES FOLDER "badslam/third_party/DBoW2")
   
+  set(opengv_DIR "D:/Bladesense/opengv/out/build/x64-Debug")
   find_package(opengv REQUIRED)
   
   # Optional, only required for live RealSense camera support

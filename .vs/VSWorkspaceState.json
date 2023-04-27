@@ -6,7 +6,12 @@
     ]
   },
   "ExpandedNodes": [
-    ""
+    "",
+    "\\applications",
+    "\\applications\\badslam",
+    "\\applications\\badslam\\src\\badslam",
+    "\\applications\\badslam\\third_party\\DBoW2"
   ],
+  "SelectedNode": "\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }

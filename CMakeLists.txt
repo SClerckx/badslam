@@ -25,8 +25,23 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 include(CheckLanguage)
 
 set(CMAKE_PREFIX_PATH "D:/Bladesense")
-list(APPEND CMAKE_PREFIX_PATH "D:/Bladesense/glew-2.1.0-win32")
+#list(APPEND CMAKE_PREFIX_PATH "D:/Bladesense/glew-2.1.0-win32")
 list(APPEND CMAKE_PREFIX_PATH "D:/Bladesense/vcpkg/installed")
+
+################################################################################
+# Toolchain
+if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
+  set(CMAKE_TOOLCHAIN_FILE "D:/Bladesense/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
+endif()
+message(STATUS "CMAKE_TOOLCHAIN_FILE: ${CMAKE_TOOLCHAIN_FILE}")
+
+################################################################################
+#Bigobj
+if(MSVC)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
+endif()
+
+message(STATUS "Target name: ${my_target_name}")
 
 
 ################################################################################
@@ -59,7 +74,12 @@ if (CMAKE_CUDA_COMPILER)
   if (NOT MSVC)
     set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -ccbin=${CMAKE_CXX_COMPILER}")
   else()
-    set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS}")
+    set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -gencode arch=compute_75,code=sm_75")
+    #set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS}")
+    #set(CMAKE_CUDA_FLAGS "-arch=sm_75")
+    message (STATUS "CMAKE_CUDA_FLAGS: ${CMAKE_CUDA_FLAGS}")
+    set(CUDA_cublas_LIBRARY "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.1/lib/x64/cublas.lib")
+    message (STATUS "CUDA_cublas_LIBRARY: ${CUDA_cublas_LIBRARY}")
   endif()
 else()
   message(FATAL_ERROR "CMake did not find CUDA, which is required to build this program.")
@@ -83,19 +103,24 @@ find_package(Eigen3 REQUIRED NO_MODULE)
 #set(EIGEN3_INCLUDE_DIR "D:/Bladesense/Eigen/eigen-3.3.9")
 #include_directories(${EIGEN3_INCLUDE_DIR})
 
-#set(Boost_INCLUDE_DIR = "D:/Bladesense/boost_1_81_0")
-set(BOOST_ROOT "D:/Bladesense/boost_1_81_0")
-set (DBoost_DEBUG=ON)
+#set(Boost_INCLUDE_DIR "D:/Bladesense/boost_1_81_0")
+#set(BOOST_ROOT "D:/Bladesense/boost_1_81_0")
+
+set(BOOST_ROOT ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET})
+#set(Boost_DIR ${_VCPKG_INSTALLED_DIR}) # don't set this one. 
+set(Boost_NO_SYSTEM_PATHS ON)
+set(Boost_NO_BOOST_CMAKE  ON) # additional set this one
+
 # Boost (external)
 if (POLICY CMP0074) # get rid of annoying warning
   cmake_policy(SET CMP0074 NEW)
 endif()
 #find_package(Boost COMPONENTS serialization filesystem system REQUIRED) https://stackoverflow.com/questions/71610458/could-not-find-boost-missing-system-found-suitable-versihow-on-1-78-0-min
 #Like Tsyvarev said, since version 1.69 if you are using only system or any other header-only component (not requiring build) you must remove keyword COMPONENT
-find_package(Boost REQUIRED)
+find_package(Boost REQUIRED COMPONENTS serialization filesystem system)
 
-set(ZLIB_LIBRARY = "D:/Bladesense/zlib1213/zlib-1.2.13")
-set(ZLIB_INCLUDE_DIR = "D:/Bladesense/zlib1213/zlib-1.2.13/out/build/x64-Debug")
+#set(ZLIB_LIBRARY = "D:/Bladesense/zlib1213/zlib-1.2.13")
+#set(ZLIB_INCLUDE_DIR = "D:/Bladesense/zlib1213/zlib-1.2.13/out/build/x64-Debug")
 # Loguru (packaged)
 add_library(loguru SHARED
   libvis/third_party/loguru/loguru.cpp
@@ -155,6 +180,7 @@ set_target_properties(png png_static genfiles PROPERTIES FOLDER "libvis/third_pa
 #set(GLEW_LIBRARIES = "D:/Bladesense/glew-2.1.0-win32/glew-2.1.0")
 #set(GLEW_LIBRARY "D:/Bladesense/glew-2.1.0-win32/glew-2.1.0/lib/Release/x64/glew32.lib") # Assuming you're using the release version and x64 architecture
 #set(GLEW_LIBRARIES ${GLEW_LIBRARY})
+set(GLEW_DIR "D:/Bladesense/vcpkg/installed/x64-windows/share/glew")
 find_package(GLEW REQUIRED) #was find_package(GLEW REQUIRED)
 
 # Vulkan (external, optional)
@@ -217,15 +243,15 @@ if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUXX)
   set(LIBVIS_WARNING_OPTIONS "${LIBVIS_WARNING_OPTIONS};$<$<COMPILE_LANGUAGE:CXX>:-Wno-missing-field-initializers>")
 elseif(MSVC)
   #  set(LIBVIS_WARNING_OPTIONS "$<$<COMPILE_LANGUAGE:CXX>:/O2")
-  set(LIBVIS_WARNING_OPTIONS "${LIBVIS_WARNING_OPTIONS};$<$<COMPILE_LANGUAGE:CXX>:/MP >")
+  set(LIBVIS_WARNING_OPTIONS "${LIBVIS_WARNING_OPTIONS};$<$<COMPILE_LANGUAGE:CXX>:/MP>") #EDITED: REMOVED A SPACE HERE AFTER MP
   set(LIBVIS_WARNING_OPTIONS "${LIBVIS_WARNING_OPTIONS};$<$<COMPILE_LANGUAGE:CXX>:/W4>")
-  set(LIBVIS_WARNING_OPTIONS "${LIBVIS_WARNING_OPTIONS};$<$<COMPILE_LANGUAGE:CXX>:/wd4068 >")
-  set(LIBVIS_WARNING_OPTIONS "${LIBVIS_WARNING_OPTIONS};$<$<COMPILE_LANGUAGE:CXX>:/wd4127 >") # https://docs.microsoft.com/en-us/cpp/error-messages/compiler-warnings/compiler-warning-level-4-c4127?view=vs-2019
+  set(LIBVIS_WARNING_OPTIONS "${LIBVIS_WARNING_OPTIONS};$<$<COMPILE_LANGUAGE:CXX>:/wd4068>")
+  set(LIBVIS_WARNING_OPTIONS "${LIBVIS_WARNING_OPTIONS};$<$<COMPILE_LANGUAGE:CXX>:/wd4127>") # https://docs.microsoft.com/en-us/cpp/error-messages/compiler-warnings/compiler-warning-level-4-c4127?view=vs-2019
   
   # NOTE: Disabled this since it triggered in a lot of places, including external headers, creating a lot of warning spam.
-  set(LIBVIS_WARNING_OPTIONS "${LIBVIS_WARNING_OPTIONS};$<$<COMPILE_LANGUAGE:CXX>:/wd4244 >")
-  set(LIBVIS_WARNING_OPTIONS "${LIBVIS_WARNING_OPTIONS};$<$<COMPILE_LANGUAGE:CXX>:/wd4267 >")
-  set(LIBVIS_WARNING_OPTIONS "${LIBVIS_WARNING_OPTIONS};$<$<COMPILE_LANGUAGE:CXX>:/wd4389 >")
+  set(LIBVIS_WARNING_OPTIONS "${LIBVIS_WARNING_OPTIONS};$<$<COMPILE_LANGUAGE:CXX>:/wd4244>")
+  set(LIBVIS_WARNING_OPTIONS "${LIBVIS_WARNING_OPTIONS};$<$<COMPILE_LANGUAGE:CXX>:/wd4267>")
+  set(LIBVIS_WARNING_OPTIONS "${LIBVIS_WARNING_OPTIONS};$<$<COMPILE_LANGUAGE:CXX>:/wd4389>")
   #ADD_DEFINITIONS("-D _USE_MATH_DEFINES /bigobj /wd4305 /wd4244 /MP")
   #target_compile_definitions(libvis PUBLIC _USE_MATH_DEFINES)
 endif()
@@ -538,11 +564,22 @@ add_executable(libvis_test
   libvis/src/libvis/test/util.cc
 )
 set_property(TARGET libvis_test PROPERTY FOLDER "libvis")
+
+#find_library(CUDA_LIB_ABS_PATH
+ #            NAMES cuda.lib
+ #            PATHS "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.1/lib/x64"
+ #            NO_DEFAULT_PATH)
+#if(NOT CUDA_LIB_ABS_PATH)
+ # message(FATAL_ERROR "cuda.lib not found ${CUDA_TOOLKIT_ROOT_DIR} path: ${CUDA_LIB_ABS_PATH}")
+#endif()
+#target_link_libraries(libvis_test ${CUDA_LIB_ABS_PATH})
+
 target_link_libraries(libvis_test PRIVATE
   gtest
   Threads::Threads
   libvis
   cublas  # TODO: currently required because of lm_optimizer.h. That should not be necessary.
+  #${CUDA_LIB_ABS_PATH}
 )
 target_include_directories(libvis_test PRIVATE
   ${gtest_SOURCE_DIR}/include
