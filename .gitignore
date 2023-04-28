@@ -21,3 +21,10 @@ build*/
 *.bin
 .vs/badslam/v17/.wsuo
 *.db
+out/install/x64-Debug/bin/*
+out/install/x64-Debug/include/*
+out/install/x64-Debug/lib/*
+out/install/x64-Debug/share/*
+.vs/badslam/v17/Browse.VC.db
+.vs/badslam/v17/.wsuo
+.vs/badslam/v17/workspaceFileList.bin

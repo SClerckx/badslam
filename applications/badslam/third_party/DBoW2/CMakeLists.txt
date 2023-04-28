@@ -33,7 +33,8 @@ set(SRCS
 set(DEPENDENCY_DIR ${CMAKE_CURRENT_BINARY_DIR}/dependencies)
 set(DEPENDENCY_INSTALL_DIR ${DEPENDENCY_DIR}/install)
 
-find_package(OpenCV REQUIRED)
+#set(OpenCV_DIR "${VCPKG_INSTALLED_DIR}/x64-windows/share/opencv2")
+find_package(OpenCV 3 REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 find_package(Boost REQUIRED)
@@ -41,6 +42,8 @@ include_directories(${Boost_INCLUDE_DIR})
 
 find_package(DLib QUIET 
   PATHS ${DEPENDENCY_INSTALL_DIR})
+
+message(STATUS "DLib_FOUND: ${DLib_FOUND}, DEPENDENCY_INSTALL_DIR: ${DEPENDENCY_INSTALL_DIR}, DLib_INCLUDE_DIRS: ${DLib_INCLUDE_DIRS}")
 if(${DLib_FOUND})
   message("DLib library found, using it from the system")
   include_directories(${DLib_INCLUDE_DIRS})

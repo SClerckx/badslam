@@ -224,7 +224,7 @@ endif()
 # OpenCV (external, required)
 #find_package(OpenCV 3.1.0 REQUIRED)
 set(OpenCV_DIR "D:/Bladesense/vcpkg/installed/x64-windows/share/opencv3")
-find_package(OpenCV REQUIRED)
+find_package(OpenCV 3 REQUIRED)
 
 # Settings.
 if(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUXX)
@@ -600,3 +600,4 @@ add_test(libvis_test
 
 include(FeatureSummary)
 feature_summary(WHAT ALL)
+
