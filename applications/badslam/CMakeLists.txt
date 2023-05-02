@@ -237,9 +237,11 @@ if (CMAKE_CUDA_COMPILER)
   
   # Installation.
   set(CMAKE_SKIP_INSTALL_ALL_DEPENDENCY true)
-  install(TARGETS badslam DESTINATION bin)
+  install(TARGETS badslam DESTINATION bin) # Added RUNTIME_DEPENDENCIES previously (error)
   if(UNIX AND NOT APPLE)
     install(FILES resources/badslam.desktop DESTINATION share/applications)  # ${XDG_APPS_INSTALL_DIR}?
     install(FILES resources/badslam.png DESTINATION share/icons/hicolor/64x64/apps)
   endif()
 endif()
+
+install(FILES $<TARGET_RUNTIME_DLLS:badslam> TYPE BIN) #Added this

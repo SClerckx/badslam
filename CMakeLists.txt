@@ -27,6 +27,7 @@ include(CheckLanguage)
 set(CMAKE_PREFIX_PATH "D:/Bladesense")
 #list(APPEND CMAKE_PREFIX_PATH "D:/Bladesense/glew-2.1.0-win32")
 list(APPEND CMAKE_PREFIX_PATH "D:/Bladesense/vcpkg/installed")
+list(APPEND VCPKG_FEATURE_FLAGS "versions")
 
 ################################################################################
 # Toolchain
@@ -119,7 +120,7 @@ if (POLICY CMP0074) # get rid of annoying warning
 endif()
 #find_package(Boost COMPONENTS serialization filesystem system REQUIRED) https://stackoverflow.com/questions/71610458/could-not-find-boost-missing-system-found-suitable-versihow-on-1-78-0-min
 #Like Tsyvarev said, since version 1.69 if you are using only system or any other header-only component (not requiring build) you must remove keyword COMPONENT
-find_package(Boost REQUIRED COMPONENTS serialization filesystem system)
+find_package(Boost 1.54 REQUIRED COMPONENTS serialization filesystem system)
 
 #set(ZLIB_LIBRARY = "D:/Bladesense/zlib1213/zlib-1.2.13")
 #set(ZLIB_INCLUDE_DIR = "D:/Bladesense/zlib1213/zlib-1.2.13/out/build/x64-Debug")
@@ -601,3 +602,7 @@ add_test(libvis_test
 include(FeatureSummary)
 feature_summary(WHAT ALL)
 
+#add_custom_command(TARGET libvis POST_BUILD 
+ #   COMMAND Qt5::windeployqt
+ #   ARGS $<TARGET_FILE:libvis>
+#)

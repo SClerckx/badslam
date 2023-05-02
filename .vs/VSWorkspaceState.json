@@ -8,13 +8,8 @@
   "ExpandedNodes": [
     "",
     "\\applications",
-    "\\applications\\badslam",
-    "\\applications\\badslam\\src",
-    "\\applications\\badslam\\src\\badslam",
-    "\\applications\\badslam\\third_party",
-    "\\applications\\badslam\\third_party\\DBoW2",
-    "\\cmake"
+    "\\applications\\badslam"
   ],
-  "SelectedNode": "\\CMakeLists.txt",
+  "SelectedNode": "\\libvis",
   "PreviewInSolutionExplorer": false
 }

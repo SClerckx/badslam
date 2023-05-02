@@ -1,0 +1,14 @@
+{
+  "dependencies": [
+    {
+      "name": "boost"
+    }
+  ],
+  "builtin-baseline": "5787cfa699a75805ef41938ec66bc7492714d290",
+  "overrides": [
+    {
+      "name": "boost",
+      "version": "1.60"
+    }
+  ]
+}
