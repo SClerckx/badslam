@@ -109,18 +109,37 @@ find_package(Eigen3 REQUIRED NO_MODULE)
 #set(Boost_INCLUDE_DIR "D:/Bladesense/boost_1_81_0")
 #set(BOOST_ROOT "D:/Bladesense/boost_1_81_0")
 
-set(BOOST_ROOT ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET})
-#set(Boost_DIR ${_VCPKG_INSTALLED_DIR}) # don't set this one. 
-set(Boost_NO_SYSTEM_PATHS ON)
-set(Boost_NO_BOOST_CMAKE  ON) # additional set this one
+#set(BOOST_ROOT ${_VCPKG_INSTALLED_DIR}/${VCPKG_TARGET_TRIPLET})
+set(BOOST_ROOT "D:/Bladesense/boost_1_69_0")
+#set(BOOST_LIBRARYDIR "D:/Bladesense/boost_1_54_0_precompiled/lib64-msvc-11.0")
+#set(BOOST_INCLUDE_DIRS "D:/Bladesense/boost_1_54_0_precompiled/boost")
+#set(Boost_COMPILER "-vc141")
+set(Boost_DEBUG ON)
+set(Boost_COMPILER "-vc140")
+set(_boost_COMPILER "-vc140")
+#set(Boost_NO_SYSTEM_PATHS ON) #Forces only looking in boost root
+#set(Boost_NO_BOOST_CMAKE  ON) # additional set this one
+#set(Boost_USE_STATIC_LIBS ON)
+
+#Print compiler version in vcxxx format
+message(STATUS "CMAKE_CXX_COMPILER_VERSION: ${_MSC_VER}")
+
+
+#set(BOOST_ROOT "D:/Bladesense/boost_1_54_0")
+#set(BOOST_INCLUDEDIR "${BOOST_ROOT}/boost")
+#set(BOOST_LIBRARYDIR "D:/Bladesense/boost_1_54_0/lib64-msvc-11.0")
+
+#set(Boost_SERIALIZATION_LIBRARY "${BOOST_LIBRARYDIR}/boost_serialization-vc110-mt-1_54.lib")
+#set(Boost_FILESYSTEM_LIBRARY "${BOOST_LIBRARYDIR}/boost_filesystem-vc110-mt-1_54.lib")
+#set(Boost_SYSTEM_LIBRARY "${BOOST_LIBRARYDIR}/boost_system-vc110-mt-1_54.lib")
 
 # Boost (external)
 if (POLICY CMP0074) # get rid of annoying warning
   cmake_policy(SET CMP0074 NEW)
 endif()
-#find_package(Boost COMPONENTS serialization filesystem system REQUIRED) https://stackoverflow.com/questions/71610458/could-not-find-boost-missing-system-found-suitable-versihow-on-1-78-0-min
-#Like Tsyvarev said, since version 1.69 if you are using only system or any other header-only component (not requiring build) you must remove keyword COMPONENT
-find_package(Boost 1.54 REQUIRED COMPONENTS serialization filesystem system)
+find_package(Boost 1.66 REQUIRED COMPONENTS serialization filesystem system) #1.54
+#include_directories(${Boost_INCLUDE_DIRS})
+#link_directories(${Boost_LIBRARY_DIRS})
 
 #set(ZLIB_LIBRARY = "D:/Bladesense/zlib1213/zlib-1.2.13")
 #set(ZLIB_INCLUDE_DIR = "D:/Bladesense/zlib1213/zlib-1.2.13/out/build/x64-Debug")

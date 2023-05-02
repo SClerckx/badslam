@@ -244,4 +244,4 @@ if (CMAKE_CUDA_COMPILER)
   endif()
 endif()
 
-install(FILES $<TARGET_RUNTIME_DLLS:badslam> TYPE BIN) #Added this
+#install(FILES $<TARGET_RUNTIME_DLLS:badslam> TYPE BIN) #Added this
