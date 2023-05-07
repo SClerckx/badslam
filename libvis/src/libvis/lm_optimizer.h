@@ -1280,8 +1280,8 @@ class LMOptimizer {
     Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic> B_T_D_inv_B;
     B_T_D_inv_B.resize(dense_H_plus_I.rows(), dense_H_plus_I.cols());
     
-    constexpr bool kRunOnGPU = false; //was true
-    /*if (kRunOnGPU) {
+    constexpr bool kRunOnGPU = true; //was true
+    if (kRunOnGPU) {
       cublasXtHandle_t cublasxthandle;
       CHECK_EQ(cublasXtCreate(&cublasxthandle), CUBLAS_STATUS_SUCCESS);
       
@@ -1338,9 +1338,9 @@ class LMOptimizer {
         CHECK_EQ(B_T_D_inv_B.cols(), result.cols());
         B_T_D_inv_B = result.cast<Scalar>();
       }
-    } else {*/
+    } else {
       B_T_D_inv_B.template triangularView<Eigen::Upper>() = m_off_diag_H.transpose() * D_inv_B;
-    //}
+    }
     
     // Compute off-diagonal^T * block_diagonal^(-1) * b_block_diagonal
     Matrix<Scalar, Eigen::Dynamic, 1> B_T_D_inv_b;
