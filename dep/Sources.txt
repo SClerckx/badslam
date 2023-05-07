@@ -1,0 +1,33 @@
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          5/7/2023   6:05 PM                resources
+-a----         4/23/2020   9:20 PM         206336 boost_filesystem-vc142-mt-gd-x64-1_73.dll
+-a----         4/23/2020   9:20 PM          67778 boost_filesystem-vc142-mt-gd-x64-1_73.lib
+-a----          5/1/2023   3:20 PM         472576 DBoW2.dll
+-a----          5/1/2023   3:20 PM         315028 DBoW2.exp
+-a----          5/1/2023   3:20 PM         519288 DBoW2.lib
+-a----          5/1/2023   3:20 PM        3248128 DBoW2.pdb
+-a----          5/2/2023   3:29 PM        2873856 gtest.dll
+-a----          5/2/2023   3:29 PM       14299136 gtest.pdb
+-a----         6/16/2020  12:03 AM         651648 k4a.dll
+-a----         6/15/2020  11:59 PM        6443008 k4a.pdb
+-a----         6/16/2020  12:03 AM        1722248 k4arecord.dll
+-a----         6/15/2020  11:59 PM       13307904 k4arecord.pdb
+-a----         4/26/2023  10:05 PM          97792 libcxsparse.dll
+-a----          5/1/2023   3:20 PM        6809600 libvis.dll
+-a----          5/1/2023   3:20 PM       54546432 libvis.pdb
+-a----          5/1/2023   3:21 PM        2997248 libvis_cuda.dll
+-a----          5/1/2023   3:21 PM       11587584 libvis_cuda.pdb
+-a----          5/2/2023   3:29 PM         390144 loguru.dll
+-a----          5/2/2023   3:29 PM        2322432 loguru.pdb
+-a----          5/1/2023   3:30 PM              0 Sources.txt
+
+
+    Directory: D:\Bladesense\badslam\dep\resources
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         2/10/2023   2:48 PM           1763 auto_tuning_result.txt
+-a----        10/28/2014   6:09 AM      423827884 brief_k10L6.voc
+-a----          2/7/2013  10:17 AM           6977 brief_pattern.yml

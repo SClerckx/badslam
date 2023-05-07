@@ -35,11 +35,12 @@ if (CMAKE_CUDA_COMPILER)
   # Optional, only required for live RealSense camera support
   find_package(realsense2)
 
+  set(K4ASDK_ROOT "C:/Program Files/Azure Kinect SDK v1.4.1")
   # Optional, only required for live Azure Kinect camera support
   if (WIN32)
     # Use a custom find script in the cmake subdirectory since the K4A SDK does
     # not seem to ship cmake files on Windows
-    find_package(K4A)
+    find_package(K4A REQUIRED)
   else()
     # On Linux, use the SDK-provided CMake files
     find_package(k4a)

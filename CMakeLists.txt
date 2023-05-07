@@ -134,7 +134,7 @@ find_package(Eigen3 REQUIRED NO_MODULE)
 
 set(BOOST_ROOT "D:/Bladesense/boost_1_73_0")
 
-set(Boost_DEBUG ON)
+#set(Boost_DEBUG ON)
 #set(Boost_COMPILER "-c143")
 #set(BOOST_COMPILER "-vc143")
 #set(_boost_COMPILER "-vc143")
