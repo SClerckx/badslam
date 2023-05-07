@@ -8,7 +8,9 @@
   "ExpandedNodes": [
     "",
     "\\applications",
-    "\\applications\\badslam"
+    "\\applications\\badslam",
+    "\\applications\\badslam\\src",
+    "\\applications\\badslam\\src\\badslam"
   ],
   "SelectedNode": "\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false

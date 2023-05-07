@@ -468,7 +468,7 @@ int LIBVIS_QT_MAIN(int argc, char** argv) {
   
   
   // ### Initialization ###
-  auto_tuning_iteration = 0;
+  //auto_tuning_iteration = 0;
   // Handle CUDA kernel size auto-tuning.
   if (auto_tuning_iteration < 0) {
     boost::filesystem::path program_dir = boost::filesystem::path(argv[0]).parent_path();
