@@ -6,11 +6,15 @@
     ]
   },
   "ExpandedNodes": [
+    "",
     "\\applications",
     "\\applications\\badslam",
     "\\applications\\badslam\\cmake",
+    "\\applications\\badslam\\src",
+    "\\applications\\badslam\\src\\badslam",
     "\\out",
     "\\out\\install"
   ],
+  "SelectedNode": "\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }

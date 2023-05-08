@@ -593,21 +593,24 @@ add_executable(libvis_test
 )
 set_property(TARGET libvis_test PROPERTY FOLDER "libvis")
 
-find_library(CUDA_LIB_ABS_PATH
-             NAMES cuda.lib
+find_library(CUDBLASLIB_ABS_PATH
+             NAMES cublas.lib
              PATHS "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.1/lib/x64"
              NO_DEFAULT_PATH)
-if(NOT CUDA_LIB_ABS_PATH)
-  message(FATAL_ERROR "cuda.lib not found ${CUDA_TOOLKIT_ROOT_DIR} path: ${CUDA_LIB_ABS_PATH}")
+if(NOT CUDBLASLIB_ABS_PATH)
+  message(FATAL_ERROR "cublas.lib not found ${CUDA_TOOLKIT_ROOT_DIR} path: ${CUDBLASLIB_ABS_PATH}")
 endif()
 
+message(STATUS "CUDBLASLIB_ABS_PATH ${CUDBLASLIB_ABS_PATH}")
 target_link_libraries(libvis_test PRIVATE
   gtest
   Threads::Threads
   libvis
   #cublas  # TODO: currently required because of lm_optimizer.h. That should not be necessary.
-  ${CUDA_LIB_ABS_PATH}
+  ${CUDBLASLIB_ABS_PATH}
 )
+
+message(STATUS "CMAKE_CUDA_TOOLKIT_INCLUDE_DIRECTORIES ${CMAKE_CUDA_TOOLKIT_INCLUDE_DIRECTORIES}")
 target_include_directories(libvis_test PRIVATE
   ${gtest_SOURCE_DIR}/include
   #${gtest_SOURCE_DIR}
