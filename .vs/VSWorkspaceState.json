@@ -12,9 +12,10 @@
     "\\applications\\badslam\\cmake",
     "\\applications\\badslam\\src",
     "\\applications\\badslam\\src\\badslam",
-    "\\out",
-    "\\out\\install"
+    "\\libvis",
+    "\\libvis\\src",
+    "\\libvis\\src\\libvis"
   ],
-  "SelectedNode": "\\CMakeLists.txt",
+  "SelectedNode": "\\applications\\badslam\\src\\badslam\\bad_slam.h",
   "PreviewInSolutionExplorer": false
 }
