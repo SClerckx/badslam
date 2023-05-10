@@ -41,7 +41,6 @@
 #include <iostream>
 #include <boost/process.hpp>
 #include <nlohmann/json.hpp>
-#include <Windows.h>
 
 
 namespace vis {
