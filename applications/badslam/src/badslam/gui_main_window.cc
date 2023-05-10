@@ -30,6 +30,7 @@
 #include "badslam/input_realsense.h"
 #include "badslam/input_structure.h"
 #include "badslam/input_azurekinect.h"
+#include "badslam/input_spectacularai.h"
 
 #include "badslam/gui_main_window.h"
 
@@ -1560,6 +1561,7 @@ void MainWindow::WorkerThreadMain() {
   RealSenseInputThread rs_input;
   StructureInputThread structure_input;
   K4AInputThread k4a_input;
+  SpectInputThread spect_input;
   int live_input = 0; // 1 realsense, 2 k4a, 3 structure
   
   if (dataset_folder_path_ == string("live://realsense")) {
