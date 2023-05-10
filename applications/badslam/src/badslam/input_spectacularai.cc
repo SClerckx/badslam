@@ -34,7 +34,7 @@ namespace vis {
     SpectInputThread::~SpectInputThread() {
         exit_ = true;
         if (thread_) {
-            LOG(INFO) << "Closing K4A input thread";
+            LOG(INFO) << "Closing spectacularai input thread";
             thread_->join();
         }
     }
