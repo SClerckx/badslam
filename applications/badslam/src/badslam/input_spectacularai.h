@@ -38,6 +38,12 @@
 #include "libvis/logging.h"
 #include <functional>
 
+#include <iostream>
+#include <boost/process.hpp>
+#include <nlohmann/json.hpp>
+#include <Windows.h>
+
+
 namespace vis {
 
     // Manages a thread which retrieves input odometry frames from spectacularAI

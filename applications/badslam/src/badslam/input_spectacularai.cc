@@ -29,6 +29,14 @@
 
 #include "badslam/input_spectacularai.h"
 
+using namespace std;
+using std::cout;
+using std::endl;
+using json = nlohmann::json;
+
+namespace fs = boost::filesystem;
+namespace bp = boost::process;
+
 namespace vis {
 
     SpectInputThread::~SpectInputThread() {
@@ -56,7 +64,26 @@ namespace vis {
     }
 
     void SpectInputThread::ThreadMain() {
-        
+        bp::ipstream out; // the output stream
+
+        // Child process
+        bp::child c("D:\\Bladesense\\SpectacularAI SDK\\Windows\\bin\\vio_jsonl.exe", bp::std_out > out);
+
+        // Read the output
+        std::string line;
+        while (out && std::getline(out, line) && !line.empty()) {
+            // Parse the line as JSON
+            json j = json::parse(line);
+
+            // Access elements of the JSON object
+            double x_acc = j["acceleration"]["x"];
+            double y_acc = j["acceleration"]["y"];
+            double z_acc = j["acceleration"]["z"];
+
+            std::cout << "Acceleration: (" << x_acc << ", " << y_acc << ", " << z_acc << ")\n";
+        }
+
+        c.wait();  // Wait for the process to finish
     }
 
 }

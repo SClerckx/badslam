@@ -9,13 +9,12 @@
     "",
     "\\applications",
     "\\applications\\badslam",
-    "\\applications\\badslam\\cmake",
     "\\applications\\badslam\\src",
     "\\applications\\badslam\\src\\badslam",
     "\\libvis",
     "\\libvis\\src",
     "\\libvis\\src\\libvis"
   ],
-  "SelectedNode": "\\libvis\\src\\libvis\\render_window.h",
+  "SelectedNode": "\\libvis\\src\\libvis\\image.h",
   "PreviewInSolutionExplorer": false
 }

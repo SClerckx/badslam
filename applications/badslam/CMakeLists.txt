@@ -22,6 +22,9 @@ if (CMAKE_CUDA_COMPILER)
   # https://cmake.org/cmake/help/latest/module/FindThreads.html
   find_package(Threads REQUIRED)
 
+  set(nlohmann_json_DIR "D:/Bladesense/vcpkg/installed/x64-windows/share/nlohmann_json")
+  find_package(nlohmann_json REQUIRED)
+
   if (UNIX)
     find_package(X11 REQUIRED)
   endif()
@@ -203,7 +206,7 @@ if (CMAKE_CUDA_COMPILER)
     ${X11_LIBRARIES}
     ${Boost_LIBRARIES}
   )
-  
+  target_link_libraries(badslam PRIVATE nlohmann_json nlohmann_json::nlohmann_json)
   
   # Unit test.
   add_executable(badslam_test
