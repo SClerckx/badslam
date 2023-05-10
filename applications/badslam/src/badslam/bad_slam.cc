@@ -322,6 +322,13 @@ void BadSlam::UpdateOdometryVisualization(
     estimated_trajectory[i] = rgbd_video_->depth_frame(i)->global_T_frame().translation();
   }
   
+  vector<Vec3f> vio_trajectory(frame_index + 1);
+  Vec3f offset;
+  offset << 1, 1, 1;
+  for (int i = 0; i <= frame_index; ++i) {
+      vio_trajectory[i] = rgbd_video_->depth_frame(i)->global_T_frame().translation() + offset;
+  }
+
   // If BA is running in parallel, update the queued keyframes here.
   vector<Mat4f> keyframe_poses;
   vector<int> keyframe_ids;
@@ -346,6 +353,7 @@ void BadSlam::UpdateOdometryVisualization(
   }
   render_window_->SetCurrentFramePoseNoLock(rgbd_video_->depth_frame(frame_index)->global_T_frame().matrix());
   render_window_->SetEstimatedTrajectoryNoLock(std::move(estimated_trajectory));
+  render_window_->SetVIOTrajectoryNoLock(std::move(vio_trajectory));
   
   render_mutex_lock.unlock();
   

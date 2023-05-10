@@ -103,6 +103,7 @@ BadSlamRenderWindow::BadSlamRenderWindow(
   
   render_current_frame_frustum_ = true;
   render_estimated_trajectory_ = true;
+  render_vio_trajectory_ = true;
   render_ground_truth_trajectory_ = true;
   render_keyframes_ = true;
   render_surfels_ = true;
@@ -340,6 +341,10 @@ void BadSlamRenderWindow::Render() {
   if (render_estimated_trajectory_) {
     RenderEstimatedTrajectory();
   }
+
+  if (render_vio_trajectory_) {
+      RenderVIOTrajectory();
+  }
   
   
   // InitializeForCUDAInterop() body
@@ -512,7 +517,7 @@ void BadSlamRenderWindow::RenderEstimatedTrajectory() {
   if (estimated_trajectory_cloud_.buffer_allocated() &&
       estimated_trajectory_cloud_.cloud_size() >= 2) {
     constant_color_program_.UseProgram();
-    constant_color_program_.SetUniform3f(constant_color_u_constant_color_location_, 0.9f, 0.1f, 0.1f);
+    constant_color_program_.SetUniform3f(constant_color_u_constant_color_location_, 0.9f, 0.1f, 0.1f); //0.9f, 0.1f, 0.1f
     
     glLineWidth(2);
     
@@ -524,6 +529,30 @@ void BadSlamRenderWindow::RenderEstimatedTrajectory() {
     
     glLineWidth(1);
   }
+}
+
+void BadSlamRenderWindow::RenderVIOTrajectory() {
+    if (!vio_trajectory_.empty()) {
+        // Transfer vertices to the GPU.
+        vio_trajectory_cloud_.TransferToGPU(sizeof(Vec3f), vio_trajectory_.size(), reinterpret_cast<float*>(vio_trajectory_.data()));  // TODO: , GL_DYNAMIC_DRAW));?
+        vio_trajectory_.clear();
+    }
+
+    if (vio_trajectory_cloud_.buffer_allocated() &&
+        vio_trajectory_cloud_.cloud_size() >= 2) {
+        constant_color_program_.UseProgram();
+        constant_color_program_.SetUniform3f(constant_color_u_constant_color_location_, 0.5f, 0.4f, 0.9f); //0.9f, 0.1f, 0.1f
+
+        glLineWidth(2);
+
+        constant_color_program_.SetUniformMatrix4f(
+            constant_color_u_model_view_projection_matrix_location_,
+            projection_matrix_ * camera_T_world_.matrix() * pose_correction_matrix_);
+
+        vio_trajectory_cloud_.RenderAsLineStrip(&constant_color_program_);
+
+        glLineWidth(1);
+    }
 }
 
 void BadSlamRenderWindow::MouseDown(MouseButton button, int x, int y) {
@@ -1117,6 +1146,10 @@ void BadSlamRenderWindow::SetGroundTruthTrajectory(vector<Vec3f>& gt_trajectory)
 
 void BadSlamRenderWindow::SetEstimatedTrajectoryNoLock(vector<Vec3f>&& estimated_trajectory) {
   estimated_trajectory_ = std::move(estimated_trajectory);
+}
+
+void BadSlamRenderWindow::SetVIOTrajectoryNoLock(vector<Vec3f>&& vio_trajectory) {
+    vio_trajectory_ = std::move(vio_trajectory);
 }
 
 void BadSlamRenderWindow::SetFramePointCloud(

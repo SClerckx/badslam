@@ -144,6 +144,9 @@ class BadSlamRenderWindow : public RenderWindowCallbacks {
   
   // Udpates the estimated trajectory. The render mutex must be locked already.
   void SetEstimatedTrajectoryNoLock(vector<Vec3f>&& estimated_trajectory);
+
+  // Udpates the vio trajectory. The render mutex must be locked already.
+  void SetVIOTrajectoryNoLock(vector<Vec3f>&& estimated_trajectory);
   
   // Udpates the displayed point cloud (corresponding to a single frame).
   void SetFramePointCloud(
@@ -200,6 +203,7 @@ class BadSlamRenderWindow : public RenderWindowCallbacks {
   
   inline void SetRenderCurrentFrameFrustum(bool enable) { render_current_frame_frustum_ = enable; }
   inline void SetRenderEstimatedTrajectory(bool enable) { render_estimated_trajectory_ = enable; }
+  inline void SetRenderVIOTrajectory(bool enable) { render_vio_trajectory_ = enable; }
   inline void SetRenderGroundTruthTrajectory(bool enable) { render_ground_truth_trajectory_ = enable; }
   inline void SetRenderKeyframes(bool enable) { render_keyframes_ = enable; }
   inline void SetRenderSurfels(bool enable) { render_surfels_ = enable; }
@@ -227,6 +231,7 @@ class BadSlamRenderWindow : public RenderWindowCallbacks {
   void RenderCurrentFrameCloud();
   void RenderGroundTruthTrajectory();
   void RenderEstimatedTrajectory();
+  void RenderVIOTrajectory();
   
   void InitializeForCUDAInteropInRenderingThread();
   void SaveScreenshotImpl();
@@ -248,6 +253,7 @@ class BadSlamRenderWindow : public RenderWindowCallbacks {
   float splat_half_extent_in_pixels_;
   bool render_current_frame_frustum_;
   bool render_estimated_trajectory_;
+  bool render_vio_trajectory_;
   bool render_ground_truth_trajectory_;
   bool render_keyframes_;
   bool render_surfels_;
@@ -322,6 +328,10 @@ class BadSlamRenderWindow : public RenderWindowCallbacks {
   // Estimated trajectory.
   vector<Vec3f> estimated_trajectory_;
   Point3fCloudOpenGL estimated_trajectory_cloud_;
+
+  // VIO trajectory.
+  vector<Vec3f> vio_trajectory_;
+  Point3fCloudOpenGL vio_trajectory_cloud_;
   
   // Splat program.
   ShaderProgramOpenGL splat_program_;

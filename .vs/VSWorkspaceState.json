@@ -16,6 +16,6 @@
     "\\libvis\\src",
     "\\libvis\\src\\libvis"
   ],
-  "SelectedNode": "\\applications\\badslam\\src\\badslam\\bad_slam.h",
+  "SelectedNode": "\\libvis\\src\\libvis\\render_window.h",
   "PreviewInSolutionExplorer": false
 }
