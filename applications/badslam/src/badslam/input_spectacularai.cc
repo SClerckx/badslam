@@ -34,8 +34,7 @@ using std::cout;
 using std::endl;
 using json = nlohmann::json;
 
-namespace fs = boost::filesystem;
-namespace bp = boost::process;
+const std::string PIPE_NAME = "\\\\.\\pipe\\MyNamedPipe";
 
 namespace vis {
 
@@ -64,26 +63,89 @@ namespace vis {
     }
 
     void SpectInputThread::ThreadMain() {
-        bp::ipstream out; // the output stream
+        void run_command()
+        {
+            std::string command = "\"D:\\Bladesense\\SpectacularAI SDK\\Windows\\bin\\vio_jsonl.exe\" > " + PIPE_NAME;
+            std::system(command.c_str());
+        }
+        HANDLE hPipe = CreateNamedPipe(
+            PIPE_NAME.c_str(),
+            PIPE_ACCESS_INBOUND,
+            PIPE_TYPE_BYTE | PIPE_READMODE_BYTE | PIPE_WAIT,
+            1,
+            1024 * 16,
+            1024 * 16,
+            NMPWAIT_USE_DEFAULT_WAIT,
+            NULL);
 
-        // Child process
-        bp::child c("D:\\Bladesense\\SpectacularAI SDK\\Windows\\bin\\vio_jsonl.exe", bp::std_out > out);
-
-        // Read the output
-        std::string line;
-        while (out && std::getline(out, line) && !line.empty()) {
-            // Parse the line as JSON
-            json j = json::parse(line);
-
-            // Access elements of the JSON object
-            double x_acc = j["acceleration"]["x"];
-            double y_acc = j["acceleration"]["y"];
-            double z_acc = j["acceleration"]["z"];
-
-            std::cout << "Acceleration: (" << x_acc << ", " << y_acc << ", " << z_acc << ")\n";
+        if (hPipe == INVALID_HANDLE_VALUE)
+        {
+            std::cerr << "Error creating named pipe" << std::endl;
         }
 
-        c.wait();  // Wait for the process to finish
+        // Run the command asynchronously
+        std::future<void> command_future = std::async(std::launch::async, run_command);
+
+        // Connect to the named pipe
+        BOOL connected = ConnectNamedPipe(hPipe, NULL) ? TRUE : (GetLastError() == ERROR_PIPE_CONNECTED);
+
+        if (!connected)
+        {
+            CloseHandle(hPipe);
+            std::cerr << "Error connecting to named pipe" << std::endl;
+        }
+
+        // Read the output in real-time
+        // Read the output in real-time
+        DWORD bytesRead;
+        char buffer[128 * 8];
+        std::string accumulated_data;
+        while (ReadFile(hPipe, buffer, sizeof(buffer) - 1, &bytesRead, NULL) != FALSE)
+        {
+            buffer[bytesRead] = '\0';
+            accumulated_data += buffer;
+
+            // Check for the start and end of a JSON object
+            size_t start_pos = accumulated_data.find_first_of("{");
+            size_t end_pos = accumulated_data.find("}}", start_pos) + 3;
+
+            while (start_pos != std::string::npos && end_pos != std::string::npos)
+            {
+                // Extract the complete JSON object string
+                std::string json_str = accumulated_data.substr(start_pos, end_pos - start_pos + 1);
+
+                //std::cout << "pure string: " << json_str << "end pure string";
+
+                try
+                {
+                    // Parse the JSON object
+                    json j = json::parse(json_str);
+
+                    // Access elements of the JSON object
+                    double x_acc = j["acceleration"]["x"];
+                    double y_acc = j["acceleration"]["y"];
+                    double z_acc = j["acceleration"]["z"];
+
+                    std::cout << "Acceleration: (" << x_acc << ", " << y_acc << ", " << z_acc << ")\n";
+                }
+                catch (const json::exception& e)
+                {
+                    std::cerr << "Error parsing JSON: " << e.what() << std::endl;
+                }
+
+                // Remove the parsed JSON object from the accumulated data
+                accumulated_data.erase(0, end_pos + 1);
+
+                // Check for the next JSON object
+                start_pos = accumulated_data.find_first_of("{");
+                end_pos = accumulated_data.find_first_of("}", start_pos);
+            }
+        }
+
+        // Disconnect and close the named pipe
+        DisconnectNamedPipe(hPipe);
+        CloseHandle(hPipe);
     }
 
+    
 }

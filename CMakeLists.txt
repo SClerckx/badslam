@@ -32,11 +32,11 @@ list(APPEND VCPKG_FEATURE_FLAGS "versions")
 
 ################################################################################
 # Toolchain
-message(STATUS "CMAKE_TOOLCHAIN_FILE: ${CMAKE_TOOLCHAIN_FILE}")
+message(STATUS "CMAKE_TOOLCHAIN_FILE_BEFORE: ${CMAKE_TOOLCHAIN_FILE}")
 if(NOT DEFINED CMAKE_TOOLCHAIN_FILE)
   set(CMAKE_TOOLCHAIN_FILE "D:/Bladesense/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
 endif()
-message(STATUS "CMAKE_TOOLCHAIN_FILE: ${CMAKE_TOOLCHAIN_FILE}")
+message(STATUS "CMAKE_TOOLCHAIN_FILE_VCPKG: ${CMAKE_TOOLCHAIN_FILE}")
 
 ################################################################################
 #Bigobj
@@ -134,8 +134,8 @@ find_package(Eigen3 REQUIRED NO_MODULE)
 #endif()
 
 set(BOOST_ROOT "D:/Bladesense/boost_1_73_0")
+set(Boost_DEBUG ON)
 
-#set(Boost_DEBUG ON)
 #set(Boost_COMPILER "-c143")
 #set(BOOST_COMPILER "-vc143")
 #set(_boost_COMPILER "-vc143")
@@ -147,6 +147,9 @@ find_package(Boost 1.73 REQUIRED COMPONENTS serialization filesystem system)
 
 include_directories(${Boost_INCLUDE_DIRS})
 link_directories(${Boost_LIBRARY_DIRS})
+
+#set(ZLIB_DIR "D:/Bladesense/vcpkg/installed/x64-windows/share/zlib")
+#find_package(ZLIB REQUIRED) doesn't work without vcpkg
 
 #set(ZLIB_LIBRARY = "D:/Bladesense/zlib1213/zlib-1.2.13")
 #set(ZLIB_INCLUDE_DIR = "D:/Bladesense/zlib1213/zlib-1.2.13/out/build/x64-Debug")

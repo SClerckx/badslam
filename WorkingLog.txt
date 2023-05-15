@@ -1,0 +1,238 @@
+1> CMake generation started for configuration: 'x64-Debug'.
+1> Found and using vcpkg toolchain file (D:/Bladesense/vcpkg/scripts/buildsystems/vcpkg.cmake).
+1> Command line: "C:\WINDOWS\system32\cmd.exe" /c "%SYSTEMROOT%\System32\chcp.com 65001 >NUL && "D:\VS\COMMON7\IDE\COMMONEXTENSIONS\MICROSOFT\CMAKE\CMake\bin\cmake.exe"  -G "Ninja"  -DCMAKE_BUILD_TYPE:STRING="Debug" -DCMAKE_INSTALL_PREFIX:PATH="D:\Bladesense\badslam\out\install\x64-Debug" -DCMAKE_C_COMPILER:FILEPATH="D:/VS/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/cl.exe" -DCMAKE_CXX_COMPILER:FILEPATH="D:/VS/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/cl.exe" \bigobj -DCMAKE_MAKE_PROGRAM="D:\VS\COMMON7\IDE\COMMONEXTENSIONS\MICROSOFT\CMAKE\Ninja\ninja.exe" -DCMAKE_TOOLCHAIN_FILE="D:/Bladesense/vcpkg/scripts/buildsystems/vcpkg.cmake" "D:\Bladesense\badslam" 2>&1"
+1> Working directory: D:\Bladesense\badslam\out\build\x64-Debug
+1> [CMake] -- The C compiler identification is MSVC 19.29.30148.0
+1> [CMake] -- The CXX compiler identification is MSVC 19.29.30148.0
+1> [CMake] -- Detecting C compiler ABI info
+1> [CMake] -- Detecting C compiler ABI info - done
+1> [CMake] -- Check for working C compiler: D:/VS/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/cl.exe - skipped
+1> [CMake] -- Detecting C compile features
+1> [CMake] -- Detecting C compile features - done
+1> [CMake] -- Detecting CXX compiler ABI info
+1> [CMake] -- Detecting CXX compiler ABI info - done
+1> [CMake] -- Check for working CXX compiler: D:/VS/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/cl.exe - skipped
+1> [CMake] -- Detecting CXX compile features
+1> [CMake] -- Detecting CXX compile features - done
+1> [CMake] -- CMAKE_TOOLCHAIN_FILE_BEFORE: D:/Bladesense/vcpkg/scripts/buildsystems/vcpkg.cmake
+1> [CMake] -- CMAKE_TOOLCHAIN_FILE_VCPKG: D:/Bladesense/vcpkg/scripts/buildsystems/vcpkg.cmake
+1> [CMake] -- Target name: 
+1> [CMake] -- Looking for a CUDA compiler
+1> [CMake] -- Looking for a CUDA compiler - C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.1/bin/nvcc.exe
+1> [CMake] -- The CUDA compiler identification is NVIDIA 12.1.105
+1> [CMake] -- Detecting CUDA compiler ABI info
+1> [CMake] -- Detecting CUDA compiler ABI info - done
+1> [CMake] -- Check for working CUDA compiler: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.1/bin/nvcc.exe - skipped
+1> [CMake] -- Detecting CUDA compile features
+1> [CMake] -- Detecting CUDA compile features - done
+1> [CMake] -- CMAKE_CUDA_FLAGS: -D_WINDOWS -Xcompiler="/W3 /GR /EHsc" -gencode arch=compute_75,code=sm_75
+1> [CMake] -- CUDA_cublas_LIBRARY: C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.1/lib/x64/cublas.lib
+1> [CMake] -- Looking for pthread.h
+1> [CMake] -- Looking for pthread.h - not found
+1> [CMake] -- Found Threads: TRUE  
+1> [CMake] -- Found OpenGL: opengl32   
+1> [CMake] -- BOOST_COMPILER 
+1> [CMake] -- MSVC_TOOLSET_VERSION 142
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1658 ] _boost_TEST_VERSIONS = "1.75.0;1.75;1.74.0;1.74;1.73.0;1.73"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1659 ] Boost_USE_MULTITHREADED = "ON"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1660 ] Boost_USE_STATIC_LIBS = "OFF"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1661 ] Boost_USE_STATIC_RUNTIME = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1662 ] Boost_ADDITIONAL_VERSIONS = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1663 ] Boost_NO_SYSTEM_PATHS = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1695 ] BOOST_ROOT = "D:/Bladesense/boost_1_73_0"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1696 ] ENV{BOOST_ROOT} = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1697 ] BOOST_INCLUDEDIR = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1698 ] ENV{BOOST_INCLUDEDIR} = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1699 ] BOOST_LIBRARYDIR = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1700 ] ENV{BOOST_LIBRARYDIR} = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1772 ] _boost_INCLUDE_SEARCH_DIRS = "D:/Bladesense/boost_1_73_0/include;D:/Bladesense/boost_1_73_0;PATHS;C:/local/boost_1_75_0;PATHS;C:/local/boost_1_75;PATHS;C:/local/boost_1_74_0;PATHS;C:/local/boost_1_74;PATHS;C:/local/boost_1_73_0;PATHS;C:/local/boost_1_73;PATHS;C:/boost/include;C:/boost;/sw/local/include"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1773 ] _boost_PATH_SUFFIXES = "boost-1_75_0;boost_1_75_0;boost/boost-1_75_0;boost/boost_1_75_0;boost-1_75;boost_1_75;boost/boost-1_75;boost/boost_1_75;boost-1_74_0;boost_1_74_0;boost/boost-1_74_0;boost/boost_1_74_0;boost-1_74;boost_1_74;boost/boost-1_74;boost/boost_1_74;boost-1_73_0;boost_1_73_0;boost/boost-1_73_0;boost/boost_1_73_0;boost-1_73;boost_1_73;boost/boost-1_73;boost/boost_1_73"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1788 ] location of version.hpp: D:/Bladesense/boost_1_73_0/boost/version.hpp
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1828 ] Boost_VERSION = "107300"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1829 ] Boost_VERSION_STRING = "1.73.0"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1830 ] Boost_VERSION_MACRO = "107300"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1831 ] Boost_VERSION_MAJOR = "1"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1832 ] Boost_VERSION_MINOR = "73"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1833 ] Boost_VERSION_PATCH = "0"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1834 ] Boost_VERSION_COUNT = "3"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1858 ] Boost_LIB_PREFIX = ""
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1859 ] Boost_NAMESPACE = "boost"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1881 ] _boost_COMPILER = "-vc140" (user-specified via Boost_COMPILER)
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1895 ] _boost_MULTITHREADED = "-mt"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1973 ] _boost_ARCHITECTURE_TAG = "-x64" (detected)
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1977 ] _boost_RELEASE_ABI_TAG = "-"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1978 ] _boost_DEBUG_ABI_TAG = "-gd"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:2038 ] _boost_LIBRARY_SEARCH_DIRS_RELEASE = "D:/Bladesense/boost_1_73_0/lib;D:/Bladesense/boost_1_73_0/stage/lib;D:/Bladesense/boost_1_73_0/lib64-msvc-14.2;D:/Bladesense/boost_1_73_0/lib64-msvc-14.1;D:/Bladesense/boost_1_73_0/lib64-msvc-14.0;D:/Bladesense/boost_1_73_0/lib;D:/Bladesense/boost_1_73_0/../lib;D:/Bladesense/boost_1_73_0/stage/lib;D:/Bladesense/boost_1_73_0/../lib64-msvc-14.2;D:/Bladesense/boost_1_73_0/../lib64-msvc-14.1;D:/Bladesense/boost_1_73_0/../lib64-msvc-14.0;D:/Bladesense/boost_1_73_0/lib64-msvc-14.2;D:/Bladesense/boost_1_73_0/lib64-msvc-14.1;D:/Bladesense/boost_1_73_0/lib64-msvc-14.0;C:/local/boost_1_75_0/lib64-msvc-14.2;C:/local/boost_1_75_0/lib64-msvc-14.1;C:/local/boost_1_75_0/lib64-msvc-14.0;C:/local/boost_1_75/lib64-msvc-14.2;C:/local/boost_1_75/lib64-msvc-14.1;C:/local/boost_1_75/lib64-msvc-14.0;C:/local/boost_1_74_0/lib64-msvc-14.2;C:/local/boost_1_74_0/lib64-msvc-14.1;C:/local/boost_1_74_0/lib64-msvc-14.0;C:/local/boost_1_74/lib64-msvc-14.2;C:/local/boost_1_74/lib64-msvc-14.1;C:/local/boost_1_74/lib64-msvc-14.0;C:/local/boost_1_73_0/lib64-msvc-14.2;C:/local/boost_1_73_0/lib64-msvc-14.1;C:/local/boost_1_73_0/lib64-msvc-14.0;C:/local/boost_1_73/lib64-msvc-14.2;C:/local/boost_1_73/lib64-msvc-14.1;C:/local/boost_1_73/lib64-msvc-14.0;C:/boost/lib64-msvc-14.2;C:/boost/lib64-msvc-14.1;C:/boost/lib64-msvc-14.0;PATHS;C:/boost/lib;C:/boost;/sw/local/lib"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:2039 ] _boost_LIBRARY_SEARCH_DIRS_DEBUG = "D:/Bladesense/boost_1_73_0/lib;D:/Bladesense/boost_1_73_0/stage/lib;D:/Bladesense/boost_1_73_0/lib64-msvc-14.2;D:/Bladesense/boost_1_73_0/lib64-msvc-14.1;D:/Bladesense/boost_1_73_0/lib64-msvc-14.0;D:/Bladesense/boost_1_73_0/lib;D:/Bladesense/boost_1_73_0/../lib;D:/Bladesense/boost_1_73_0/stage/lib;D:/Bladesense/boost_1_73_0/../lib64-msvc-14.2;D:/Bladesense/boost_1_73_0/../lib64-msvc-14.1;D:/Bladesense/boost_1_73_0/../lib64-msvc-14.0;D:/Bladesense/boost_1_73_0/lib64-msvc-14.2;D:/Bladesense/boost_1_73_0/lib64-msvc-14.1;D:/Bladesense/boost_1_73_0/lib64-msvc-14.0;C:/local/boost_1_75_0/lib64-msvc-14.2;C:/local/boost_1_75_0/lib64-msvc-14.1;C:/local/boost_1_75_0/lib64-msvc-14.0;C:/local/boost_1_75/lib64-msvc-14.2;C:/local/boost_1_75/lib64-msvc-14.1;C:/local/boost_1_75/lib64-msvc-14.0;C:/local/boost_1_74_0/lib64-msvc-14.2;C:/local/boost_1_74_0/lib64-msvc-14.1;C:/local/boost_1_74_0/lib64-msvc-14.0;C:/local/boost_1_74/lib64-msvc-14.2;C:/local/boost_1_74/lib64-msvc-14.1;C:/local/boost_1_74/lib64-msvc-14.0;C:/local/boost_1_73_0/lib64-msvc-14.2;C:/local/boost_1_73_0/lib64-msvc-14.1;C:/local/boost_1_73_0/lib64-msvc-14.0;C:/local/boost_1_73/lib64-msvc-14.2;C:/local/boost_1_73/lib64-msvc-14.1;C:/local/boost_1_73/lib64-msvc-14.0;C:/boost/lib64-msvc-14.2;C:/boost/lib64-msvc-14.1;C:/boost/lib64-msvc-14.0;PATHS;C:/boost/lib;C:/boost;/sw/local/lib"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:2224 ] Searching for SERIALIZATION_LIBRARY_RELEASE: boost_serialization-vc140-mt-x64-1_73;boost_serialization-vc140-mt-x64;boost_serialization-vc140-mt;boost_serialization-mt-x64-1_73;boost_serialization-mt-x64;boost_serialization-mt;boost_serialization-mt;boost_serialization
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:2279 ] Searching for SERIALIZATION_LIBRARY_DEBUG: boost_serialization-vc140-mt-gd-x64-1_73;boost_serialization-vc140-mt-gd-x64;boost_serialization-vc140-mt-gd;boost_serialization-mt-gd-x64-1_73;boost_serialization-mt-gd-x64;boost_serialization-mt-gd;boost_serialization-mt;boost_serialization
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:807 ] Boost_LIBRARY_DIR_DEBUG = "D:/Bladesense/boost_1_73_0/lib64-msvc-14.2"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:809 ] _boost_LIBRARY_SEARCH_DIRS_DEBUG = "D:/Bladesense/boost_1_73_0/lib64-msvc-14.2;NO_DEFAULT_PATH;NO_CMAKE_FIND_ROOT_PATH"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:2224 ] Searching for FILESYSTEM_LIBRARY_RELEASE: boost_filesystem-vc140-mt-x64-1_73;boost_filesystem-vc140-mt-x64;boost_filesystem-vc140-mt;boost_filesystem-mt-x64-1_73;boost_filesystem-mt-x64;boost_filesystem-mt;boost_filesystem-mt;boost_filesystem
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:2279 ] Searching for FILESYSTEM_LIBRARY_DEBUG: boost_filesystem-vc140-mt-gd-x64-1_73;boost_filesystem-vc140-mt-gd-x64;boost_filesystem-vc140-mt-gd;boost_filesystem-mt-gd-x64-1_73;boost_filesystem-mt-gd-x64;boost_filesystem-mt-gd;boost_filesystem-mt;boost_filesystem
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:807 ] Boost_LIBRARY_DIR_DEBUG = "D:/Bladesense/boost_1_73_0/lib64-msvc-14.2"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:809 ] _boost_LIBRARY_SEARCH_DIRS_DEBUG = "D:/Bladesense/boost_1_73_0/lib64-msvc-14.2;NO_DEFAULT_PATH;NO_CMAKE_FIND_ROOT_PATH"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:2224 ] Searching for SYSTEM_LIBRARY_RELEASE: boost_system-vc140-mt-x64-1_73;boost_system-vc140-mt-x64;boost_system-vc140-mt;boost_system-mt-x64-1_73;boost_system-mt-x64;boost_system-mt;boost_system-mt;boost_system
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:2279 ] Searching for SYSTEM_LIBRARY_DEBUG: boost_system-vc140-mt-gd-x64-1_73;boost_system-vc140-mt-gd-x64;boost_system-vc140-mt-gd;boost_system-mt-gd-x64-1_73;boost_system-mt-gd-x64;boost_system-mt-gd;boost_system-mt;boost_system
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:807 ] Boost_LIBRARY_DIR_DEBUG = "D:/Bladesense/boost_1_73_0/lib64-msvc-14.2"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:809 ] _boost_LIBRARY_SEARCH_DIRS_DEBUG = "D:/Bladesense/boost_1_73_0/lib64-msvc-14.2;NO_DEFAULT_PATH;NO_CMAKE_FIND_ROOT_PATH"
+1> [CMake] -- Found Boost: D:/Bladesense/boost_1_73_0 (found suitable version "1.73.0", minimum required is "1.73") found components: serialization filesystem system 
+1> [CMake] CMake Deprecation Warning at libvis/third_party/gtest/CMakeLists.txt:43 (cmake_minimum_required):
+1> [CMake]   Compatibility with CMake < 2.8.12 will be removed from a future version of
+1> [CMake]   CMake.
+1> [CMake] 
+1> [CMake]   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+1> [CMake]   CMake that the project does not need compatibility with older versions.
+1> [CMake] 
+1> [CMake] 
+1> [CMake] -- Found PythonInterp: C:/python38/python.exe (found version "3.8.10") 
+1> [CMake] -- The ASM compiler identification is MSVC
+1> [CMake] -- Found assembler: D:/VS/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/cl.exe
+1> [CMake] -- Found ZLIB: optimized;D:/Bladesense/vcpkg/installed/x64-windows/lib/zlib.lib;debug;D:/Bladesense/vcpkg/installed/x64-windows/debug/lib/zlibd.lib (found version "1.2.13") 
+1> [CMake] -- Performing Test HAVE_LD_VERSION_SCRIPT
+1> [CMake] -- Performing Test HAVE_LD_VERSION_SCRIPT - Failed
+1> [CMake] -- Performing Test HAVE_SOLARIS_LD_VERSION_SCRIPT
+1> [CMake] -- Performing Test HAVE_SOLARIS_LD_VERSION_SCRIPT - Failed
+1> [CMake] -- Found OpenCV: D:/Bladesense/vcpkg/installed/x64-windows (found suitable version "3.4.18", minimum required is "3") 
+1> [CMake] -- Found nlohmann_json: D:/Bladesense/vcpkg/installed/x64-windows/share/nlohmann_json/nlohmann_jsonConfig.cmake (found version "3.11.2") 
+1> [CMake] CMake Deprecation Warning at applications/badslam/third_party/DBoW2/CMakeLists.txt:1 (cmake_minimum_required):
+1> [CMake]   Compatibility with CMake < 2.8.12 will be removed from a future version of
+1> [CMake]   CMake.
+1> [CMake] 
+1> [CMake]   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+1> [CMake]   CMake that the project does not need compatibility with older versions.
+1> [CMake] 
+1> [CMake] 
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1658 ] _boost_TEST_VERSIONS = "1.75.0;1.75;1.74.0;1.74;1.73.0;1.73;1.72.0;1.72;1.71.0;1.71;1.70.0;1.70;1.69.0;1.69;1.68.0;1.68;1.67.0;1.67;1.66.0;1.66;1.65.1;1.65.0;1.65;1.64.0;1.64;1.63.0;1.63;1.62.0;1.62;1.61.0;1.61;1.60.0;1.60;1.59.0;1.59;1.58.0;1.58;1.57.0;1.57;1.56.0;1.56;1.55.0;1.55;1.54.0;1.54;1.53.0;1.53;1.52.0;1.52;1.51.0;1.51;1.50.0;1.50;1.49.0;1.49;1.48.0;1.48;1.47.0;1.47;1.46.1;1.46.0;1.46;1.45.0;1.45;1.44.0;1.44;1.43.0;1.43;1.42.0;1.42;1.41.0;1.41;1.40.0;1.40;1.39.0;1.39;1.38.0;1.38;1.37.0;1.37;1.36.1;1.36.0;1.36;1.35.1;1.35.0;1.35;1.34.1;1.34.0;1.34;1.33.1;1.33.0;1.33"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1659 ] Boost_USE_MULTITHREADED = "ON"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1660 ] Boost_USE_STATIC_LIBS = "OFF"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1661 ] Boost_USE_STATIC_RUNTIME = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1662 ] Boost_ADDITIONAL_VERSIONS = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1663 ] Boost_NO_SYSTEM_PATHS = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1695 ] BOOST_ROOT = "D:/Bladesense/boost_1_73_0"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1696 ] ENV{BOOST_ROOT} = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1697 ] BOOST_INCLUDEDIR = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1698 ] ENV{BOOST_INCLUDEDIR} = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1699 ] BOOST_LIBRARYDIR = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1700 ] ENV{BOOST_LIBRARYDIR} = <unset>
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1788 ] location of version.hpp: D:/Bladesense/boost_1_73_0/boost/version.hpp
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1828 ] Boost_VERSION = "107300"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1829 ] Boost_VERSION_STRING = "1.73.0"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1830 ] Boost_VERSION_MACRO = "107300"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1831 ] Boost_VERSION_MAJOR = "1"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1832 ] Boost_VERSION_MINOR = "73"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1833 ] Boost_VERSION_PATCH = "0"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1834 ] Boost_VERSION_COUNT = "3"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1858 ] Boost_LIB_PREFIX = ""
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1859 ] Boost_NAMESPACE = "boost"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1881 ] _boost_COMPILER = "-vc140" (user-specified via Boost_COMPILER)
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1895 ] _boost_MULTITHREADED = "-mt"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1973 ] _boost_ARCHITECTURE_TAG = "-x64" (detected)
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1977 ] _boost_RELEASE_ABI_TAG = "-"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:1978 ] _boost_DEBUG_ABI_TAG = "-gd"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:2038 ] _boost_LIBRARY_SEARCH_DIRS_RELEASE = "D:/Bladesense/boost_1_73_0/lib;D:/Bladesense/boost_1_73_0/stage/lib;D:/Bladesense/boost_1_73_0/lib64-msvc-14.2;D:/Bladesense/boost_1_73_0/lib64-msvc-14.1;D:/Bladesense/boost_1_73_0/lib64-msvc-14.0;D:/Bladesense/boost_1_73_0/lib;D:/Bladesense/boost_1_73_0/../lib;D:/Bladesense/boost_1_73_0/stage/lib;D:/Bladesense/boost_1_73_0/../lib64-msvc-14.2;D:/Bladesense/boost_1_73_0/../lib64-msvc-14.1;D:/Bladesense/boost_1_73_0/../lib64-msvc-14.0;D:/Bladesense/boost_1_73_0/lib64-msvc-14.2;D:/Bladesense/boost_1_73_0/lib64-msvc-14.1;D:/Bladesense/boost_1_73_0/lib64-msvc-14.0;C:/local/boost_1_75_0/lib64-msvc-14.2;C:/local/boost_1_75_0/lib64-msvc-14.1;C:/local/boost_1_75_0/lib64-msvc-14.0;C:/local/boost_1_75/lib64-msvc-14.2;C:/local/boost_1_75/lib64-msvc-14.1;C:/local/boost_1_75/lib64-msvc-14.0;C:/local/boost_1_74_0/lib64-msvc-14.2;C:/local/boost_1_74_0/lib64-msvc-14.1;C:/local/boost_1_74_0/lib64-msvc-14.0;C:/local/boost_1_74/lib64-msvc-14.2;C:/local/boost_1_74/lib64-msvc-14.1;C:/local/boost_1_74/lib64-msvc-14.0;C:/local/boost_1_73_0/lib64-msvc-14.2;C:/local/boost_1_73_0/lib64-msvc-14.1;C:/local/boost_1_73_0/lib64-msvc-14.0;C:/local/boost_1_73/lib64-msvc-14.2;C:/local/boost_1_73/lib64-msvc-14.1;C:/local/boost_1_73/lib64-msvc-14.0;C:/local/boost_1_72_0/lib64-msvc-14.2;C:/local/boost_1_72_0/lib64-msvc-14.1;C:/local/boost_1_72_0/lib64-msvc-14.0;C:/local/boost_1_72/lib64-msvc-14.2;C:/local/boost_1_72/lib64-msvc-14.1;C:/local/boost_1_72/lib64-msvc-14.0;C:/local/boost_1_71_0/lib64-msvc-14.2;C:/local/boost_1_71_0/lib64-msvc-14.1;C:/local/boost_1_71_0/lib64-msvc-14.0;C:/local/boost_1_71/lib64-msvc-14.2;C:/local/boost_1_71/lib64-msvc-14.1;C:/local/boost_1_71/lib64-msvc-14.0;C:/local/boost_1_70_0/lib64-msvc-14.2;C:/local/boost_1_70_0/lib64-msvc-14.1;C:/local/boost_1_70_0/lib64-msvc-14.0;C:/local/boost_1_70/lib64-msvc-14.2;C:/local/boost_1_70/lib64-msvc-14.1;C:/local/boost_1_70/lib64-msvc-14.0;C:/local/boost_1_69_0/lib64-msvc-14.2;C:/local/boost_1_69_0/lib64-msvc-14.1;C:/local/boost_1_69_0/lib64-msvc-14.0;C:/local/boost_1_69/lib64-msvc-14.2;C:/local/boost_1_69/lib64-msvc-14.1;C:/local/boost_1_69/lib64-msvc-14.0;C:/local/boost_1_68_0/lib64-msvc-14.2;C:/local/boost_1_68_0/lib64-msvc-14.1;C:/local/boost_1_68_0/lib64-msvc-14.0;C:/local/boost_1_68/lib64-msvc-14.2;C:/local/boost_1_68/lib64-msvc-14.1;C:/local/boost_1_68/lib64-msvc-14.0;C:/local/boost_1_67_0/lib64-msvc-14.2;C:/local/boost_1_67_0/lib64-msvc-14.1;C:/local/boost_1_67_0/lib64-msvc-14.0;C:/local/boost_1_67/lib64-msvc-14.2;C:/local/boost_1_67/lib64-msvc-14.1;C:/local/boost_1_67/lib64-msvc-14.0;C:/local/boost_1_66_0/lib64-msvc-14.2;C:/local/boost_1_66_0/lib64-msvc-14.1;C:/local/boost_1_66_0/lib64-msvc-14.0;C:/local/boost_1_66/lib64-msvc-14.2;C:/local/boost_1_66/lib64-msvc-14.1;C:/local/boost_1_66/lib64-msvc-14.0;C:/local/boost_1_65_1/lib64-msvc-14.2;C:/local/boost_1_65_1/lib64-msvc-14.1;C:/local/boost_1_65_1/lib64-msvc-14.0;C:/local/boost_1_65_0/lib64-msvc-14.2;C:/local/boost_1_65_0/lib64-msvc-14.1;C:/local/boost_1_65_0/lib64-msvc-14.0;C:/local/boost_1_65/lib64-msvc-14.2;C:/local/boost_1_65/lib64-msvc-14.1;C:/local/boost_1_65/lib64-msvc-14.0;C:/local/boost_1_64_0/lib64-msvc-14.2;C:/local/boost_1_64_0/lib64-msvc-14.1;C:/local/boost_1_64_0/lib64-msvc-14.0;C:/local/boost_1_64/lib64-msvc-14.2;C:/local/boost_1_64/lib64-msvc-14.1;C:/local/boost_1_64/lib64-msvc-14.0;C:/local/boost_1_63_0/lib64-msvc-14.2;C:/local/boost_1_63_0/lib64-msvc-14.1;C:/local/boost_1_63_0/lib64-msvc-14.0;C:/local/boost_1_63/lib64-msvc-14.2;C:/local/boost_1_63/lib64-msvc-14.1;C:/local/boost_1_63/lib64-msvc-14.0;C:/local/boost_1_62_0/lib64-msvc-14.2;C:/local/boost_1_62_0/lib64-msvc-14.1;C:/local/boost_1_62_0/lib64-msvc-14.0;C:/local/boost_1_62/lib64-msvc-14.2;C:/local/boost_1_62/lib64-msvc-14.1;C:/local/boost_1_62/lib64-msvc-14.0;C:/local/boost_1_61_0/lib64-msvc-14.2;C:/local/boost_1_61_0/lib64-msvc-14.1;C:/local/boost_1_61_0/lib64-msvc-14.0;C:/local/boost_1_61/lib64-msvc-14.2;C:/local/boost_1_61/lib64-msvc-14.1;C:/local/boost_1_61/lib64-msvc-14.0;C:/local/boost_1_60_0/lib64-msvc-14.2;C:/local/boost_1_60_0/lib64-msvc-14.1;C:/local/boost_1_60_0/lib64-msvc-14.0;C:/local/boost_1_60/lib64-msvc-14.2;C:/local/boost_1_60/lib64-msvc-14.1;C:/local/boost_1_60/lib64-msvc-14.0;C:/local/boost_1_59_0/lib64-msvc-14.2;C:/local/boost_1_59_0/lib64-msvc-14.1;C:/local/boost_1_59_0/lib64-msvc-14.0;C:/local/boost_1_59/lib64-msvc-14.2;C:/local/boost_1_59/lib64-msvc-14.1;C:/local/boost_1_59/lib64-msvc-14.0;C:/local/boost_1_58_0/lib64-msvc-14.2;C:/local/boost_1_58_0/lib64-msvc-14.1;C:/local/boost_1_58_0/lib64-msvc-14.0;C:/local/boost_1_58/lib64-msvc-14.2;C:/local/boost_1_58/lib64-msvc-14.1;C:/local/boost_1_58/lib64-msvc-14.0;C:/local/boost_1_57_0/lib64-msvc-14.2;C:/local/boost_1_57_0/lib64-msvc-14.1;C:/local/boost_1_57_0/lib64-msvc-14.0;C:/local/boost_1_57/lib64-msvc-14.2;C:/local/boost_1_57/lib64-msvc-14.1;C:/local/boost_1_57/lib64-msvc-14.0;C:/local/boost_1_56_0/lib64-msvc-14.2;C:/local/boost_1_56_0/lib64-msvc-14.1;C:/local/boost_1_56_0/lib64-msvc-14.0;C:/local/boost_1_56/lib64-msvc-14.2;C:/local/boost_1_56/lib64-msvc-14.1;C:/local/boost_1_56/lib64-msvc-14.0;C:/local/boost_1_55_0/lib64-msvc-14.2;C:/local/boost_1_55_0/lib64-msvc-14.1;C:/local/boost_1_55_0/lib64-msvc-14.0;C:/local/boost_1_55/lib64-msvc-14.2;C:/local/boost_1_55/lib64-msvc-14.1;C:/local/boost_1_55/lib64-msvc-14.0;C:/local/boost_1_54_0/lib64-msvc-14.2;C:/local/boost_1_54_0/lib64-msvc-14.1;C:/local/boost_1_54_0/lib64-msvc-14.0;C:/local/boost_1_54/lib64-msvc-14.2;C:/local/boost_1_54/lib64-msvc-14.1;C:/local/boost_1_54/lib64-msvc-14.0;C:/local/boost_1_53_0/lib64-msvc-14.2;C:/local/boost_1_53_0/lib64-msvc-14.1;C:/local/boost_1_53_0/lib64-msvc-14.0;C:/local/boost_1_53/lib64-msvc-14.2;C:/local/boost_1_53/lib64-msvc-14.1;C:/local/boost_1_53/lib64-msvc-14.0;C:/local/boost_1_52_0/lib64-msvc-14.2;C:/local/boost_1_52_0/lib64-msvc-14.1;C:/local/boost_1_52_0/lib64-msvc-14.0;C:/local/boost_1_52/lib64-msvc-14.2;C:/local/boost_1_52/lib64-msvc-14.1;C:/local/boost_1_52/lib64-msvc-14.0;C:/local/boost_1_51_0/lib64-msvc-14.2;C:/local/boost_1_51_0/lib64-msvc-14.1;C:/local/boost_1_51_0/lib64-msvc-14.0;C:/local/boost_1_51/lib64-msvc-14.2;C:/local/boost_1_51/lib64-msvc-14.1;C:/local/boost_1_51/lib64-msvc-14.0;C:/local/boost_1_50_0/lib64-msvc-14.2;C:/local/boost_1_50_0/lib64-msvc-14.1;C:/local/boost_1_50_0/lib64-msvc-14.0;C:/local/boost_1_50/lib64-msvc-14.2;C:/local/boost_1_50/lib64-msvc-14.1;C:/local/boost_1_50/lib64-msvc-14.0;C:/local/boost_1_49_0/lib64-msvc-14.2;C:/local/boost_1_49_0/lib64-msvc-14.1;C:/local/boost_1_49_0/lib64-msvc-14.0;C:/local/boost_1_49/lib64-msvc-14.2;C:/local/boost_1_49/lib64-msvc-14.1;C:/local/boost_1_49/lib64-msvc-14.0;C:/local/boost_1_48_0/lib64-msvc-14.2;C:/local/boost_1_48_0/lib64-msvc-14.1;C:/local/boost_1_48_0/lib64-msvc-14.0;C:/local/boost_1_48/lib64-msvc-14.2;C:/local/boost_1_48/lib64-msvc-14.1;C:/local/boost_1_48/lib64-msvc-14.0;C:/local/boost_1_47_0/lib64-msvc-14.2;C:/local/boost_1_47_0/lib64-msvc-14.1;C:/local/boost_1_47_0/lib64-msvc-14.0;C:/local/boost_1_47/lib64-msvc-14.2;C:/local/boost_1_47/lib64-msvc-14.1;C:/local/boost_1_47/lib64-msvc-14.0;C:/local/boost_1_46_1/lib64-msvc-14.2;C:/local/boost_1_46_1/lib64-msvc-14.1;C:/local/boost_1_46_1/lib64-msvc-14.0;C:/local/boost_1_46_0/lib64-msvc-14.2;C:/local/boost_1_46_0/lib64-msvc-14.1;C:/local/boost_1_46_0/lib64-msvc-14.0;C:/local/boost_1_46/lib64-msvc-14.2;C:/local/boost_1_46/lib64-msvc-14.1;C:/local/boost_1_46/lib64-msvc-14.0;C:/local/boost_1_45_0/lib64-msvc-14.2;C:/local/boost_1_45_0/lib64-msvc-14.1;C:/local/boost_1_45_0/lib64-msvc-14.0;C:/local/boost_1_45/lib64-msvc-14.2;C:/local/boost_1_45/lib64-msvc-14.1;C:/local/boost_1_45/lib64-msvc-14.0;C:/local/boost_1_44_0/lib64-msvc-14.2;C:/local/boost_1_44_0/lib64-msvc-14.1;C:/local/boost_1_44_0/lib64-msvc-14.0;C:/local/boost_1_44/lib64-msvc-14.2;C:/local/boost_1_44/lib64-msvc-14.1;C:/local/boost_1_44/lib64-msvc-14.0;C:/local/boost_1_43_0/lib64-msvc-14.2;C:/local/boost_1_43_0/lib64-msvc-14.1;C:/local/boost_1_43_0/lib64-msvc-14.0;C:/local/boost_1_43/lib64-msvc-14.2;C:/local/boost_1_43/lib64-msvc-14.1;C:/local/boost_1_43/lib64-msvc-14.0;C:/local/boost_1_42_0/lib64-msvc-14.2;C:/local/boost_1_42_0/lib64-msvc-14.1;C:/local/boost_1_42_0/lib64-msvc-14.0;C:/local/boost_1_42/lib64-msvc-14.2;C:/local/boost_1_42/lib64-msvc-14.1;C:/local/boost_1_42/lib64-msvc-14.0;C:/local/boost_1_41_0/lib64-msvc-14.2;C:/local/boost_1_41_0/lib64-msvc-14.1;C:/local/boost_1_41_0/lib64-msvc-14.0;C:/local/boost_1_41/lib64-msvc-14.2;C:/local/boost_1_41/lib64-msvc-14.1;C:/local/boost_1_41/lib64-msvc-14.0;C:/local/boost_1_40_0/lib64-msvc-14.2;C:/local/boost_1_40_0/lib64-msvc-14.1;C:/local/boost_1_40_0/lib64-msvc-14.0;C:/local/boost_1_40/lib64-msvc-14.2;C:/local/boost_1_40/lib64-msvc-14.1;C:/local/boost_1_40/lib64-msvc-14.0;C:/local/boost_1_39_0/lib64-msvc-14.2;C:/local/boost_1_39_0/lib64-msvc-14.1;C:/local/boost_1_39_0/lib64-msvc-14.0;C:/local/boost_1_39/lib64-msvc-14.2;C:/local/boost_1_39/lib64-msvc-14.1;C:/local/boost_1_39/lib64-msvc-14.0;C:/local/boost_1_38_0/lib64-msvc-14.2;C:/local/boost_1_38_0/lib64-msvc-14.1;C:/local/boost_1_38_0/lib64-msvc-14.0;C:/local/boost_1_38/lib64-msvc-14.2;C:/local/boost_1_38/lib64-msvc-14.1;C:/local/boost_1_38/lib64-msvc-14.0;C:/local/boost_1_37_0/lib64-msvc-14.2;C:/local/boost_1_37_0/lib64-msvc-14.1;C:/local/boost_1_37_0/lib64-msvc-14.0;C:/local/boost_1_37/lib64-msvc-14.2;C:/local/boost_1_37/lib64-msvc-14.1;C:/local/boost_1_37/lib64-msvc-14.0;C:/local/boost_1_36_1/lib64-msvc-14.2;C:/local/boost_1_36_1/lib64-msvc-14.1;C:/local/boost_1_36_1/lib64-msvc-14.0;C:/local/boost_1_36_0/lib64-msvc-14.2;C:/local/boost_1_36_0/lib64-msvc-14.1;C:/local/boost_1_36_0/lib64-msvc-14.0;C:/local/boost_1_36/lib64-msvc-14.2;C:/local/boost_1_36/lib64-msvc-14.1;C:/local/boost_1_36/lib64-msvc-14.0;C:/local/boost_1_35_1/lib64-msvc-14.2;C:/local/boost_1_35_1/lib64-msvc-14.1;C:/local/boost_1_35_1/lib64-msvc-14.0;C:/local/boost_1_35_0/lib64-msvc-14.2;C:/local/boost_1_35_0/lib64-msvc-14.1;C:/local/boost_1_35_0/lib64-msvc-14.0;C:/local/boost_1_35/lib64-msvc-14.2;C:/local/boost_1_35/lib64-msvc-14.1;C:/local/boost_1_35/lib64-msvc-14.0;C:/local/boost_1_34_1/lib64-msvc-14.2;C:/local/boost_1_34_1/lib64-msvc-14.1;C:/local/boost_1_34_1/lib64-msvc-14.0;C:/local/boost_1_34_0/lib64-msvc-14.2;C:/local/boost_1_34_0/lib64-msvc-14.1;C:/local/boost_1_34_0/lib64-msvc-14.0;C:/local/boost_1_34/lib64-msvc-14.2;C:/local/boost_1_34/lib64-msvc-14.1;C:/local/boost_1_34/lib64-msvc-14.0;C:/local/boost_1_33_1/lib64-msvc-14.2;C:/local/boost_1_33_1/lib64-msvc-14.1;C:/local/boost_1_33_1/lib64-msvc-14.0;C:/local/boost_1_33_0/lib64-msvc-14.2;C:/local/boost_1_33_0/lib64-msvc-14.1;C:/local/boost_1_33_0/lib64-msvc-14.0;C:/local/boost_1_33/lib64-msvc-14.2;C:/local/boost_1_33/lib64-msvc-14.1;C:/local/boost_1_33/lib64-msvc-14.0;C:/boost/lib64-msvc-14.2;C:/boost/lib64-msvc-14.1;C:/boost/lib64-msvc-14.0;PATHS;C:/boost/lib;C:/boost;/sw/local/lib"
+1> [CMake] -- [ D:/VS/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.20/Modules/FindBoost.cmake:2039 ] _boost_LIBRARY_SEARCH_DIRS_DEBUG = "D:/Bladesense/boost_1_73_0/lib64-msvc-14.2;NO_DEFAULT_PATH;NO_CMAKE_FIND_ROOT_PATH"
+1> [CMake] -- Found Boost: D:/Bladesense/boost_1_73_0 (found version "1.73.0")  
+1> [CMake] -- DLib_FOUND: 1, DEPENDENCY_INSTALL_DIR: D:/Bladesense/badslam/out/build/x64-Debug/applications/badslam/third_party/DBoW2/dependencies/install, DLib_INCLUDE_DIRS: D:/Bladesense/DLib/out/install/x64-Debug/include/DLib;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../DUtils;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../DUtilsCV;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../DVision;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../DUtils;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../DUtilsCV;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../DVision/../;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../DUtils;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../DUtilsCV;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../DVision/../DUtils;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../DUtils;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../DUtilsCV;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../DVision/../DUtilsCV;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../DUtils;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../DUtilsCV;D:/Bladesense/DLib/out/install/x64-Debug/include/DLib/../DVision/../DVision
+1> [CMake] DLib library found, using it from the system
+1> [CMake] CMake Warning at D:/Bladesense/vcpkg/scripts/buildsystems/vcpkg.cmake:854 (_find_package):
+1> [CMake]   By not providing "Findrealsense2.cmake" in CMAKE_MODULE_PATH this project
+1> [CMake]   has asked CMake to find a package configuration file provided by
+1> [CMake]   "realsense2", but CMake did not find one.
+1> [CMake] 
+1> [CMake]   Could not find a package configuration file provided by "realsense2" with
+1> [CMake]   any of the following names:
+1> [CMake] 
+1> [CMake]     realsense2Config.cmake
+1> [CMake]     realsense2-config.cmake
+1> [CMake] 
+1> [CMake]   Add the installation prefix of "realsense2" to CMAKE_PREFIX_PATH or set
+1> [CMake]   "realsense2_DIR" to a directory containing one of the above files.  If
+1> [CMake]   "realsense2" provides a separate development package or SDK, be sure it has
+1> [CMake]   been installed.
+1> [CMake] Call Stack (most recent call first):
+1> [CMake]   applications/badslam/CMakeLists.txt:39 (find_package)
+1> [CMake] CMake Warning at applications/badslam/cmake/FindK4A.cmake:12 (message):
+1> [CMake]   K4ASDK_TARGET_ARCH is not set.  Assuming amd64.
+1> [CMake] Call Stack (most recent call first):
+1> [CMake]   D:/Bladesense/vcpkg/scripts/buildsystems/vcpkg.cmake:854 (_find_package)
+1> [CMake]   applications/badslam/CMakeLists.txt:46 (find_package)
+1> [CMake] -- SCSDK_ROOT has not been set. If you would like to use the Structure SDK support, please set this to the root path of the Structure SDK manually.
+1> [CMake] -- Linking boost libraries D:/Bladesense/boost_1_73_0/lib64-msvc-14.2/boost_serialization-vc140-mt-gd-x64-1_73.lib;D:/Bladesense/boost_1_73_0/lib64-msvc-14.2/boost_filesystem-vc140-mt-gd-x64-1_73.lib;D:/Bladesense/boost_1_73_0/lib64-msvc-14.2/boost_system-vc140-mt-gd-x64-1_73.lib
+1> [CMake] -- CUDBLASLIB_ABS_PATH C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.1/lib/x64/cublas.lib
+1> [CMake] -- CMAKE_CUDA_TOOLKIT_INCLUDE_DIRECTORIES C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.1/include
+1> [CMake] -- The following OPTIONAL packages have been found:
+1> [CMake] 
+1> [CMake]  * PythonInterp
+1> [CMake]  * GLEW
+1> [CMake] 
+1> [CMake] -- The following REQUIRED packages have been found:
+1> [CMake] 
+1> [CMake]  * ZLIB
+1> [CMake]  * Qt5Core
+1> [CMake]  * Qt5Gui (required version >= 5.15.9)
+1> [CMake]  * Qt5OpenGL
+1> [CMake]  * Qt5Widgets
+1> [CMake]  * Qt5 (required version >= 5.8)
+1> [CMake]  * SuiteSparse
+1> [CMake]  * Eigen3
+1> [CMake]  * g2o
+1> [CMake]  * OpenGL
+1> [CMake]  * Threads
+1> [CMake]  * nlohmann_json
+1> [CMake]  * OpenCV (required version >= 3)
+1> [CMake]  * Boost
+1> [CMake]  * DLib
+1> [CMake]  * opengv
+1> [CMake]  * K4A
+1> [CMake] 
+1> [CMake] -- The following OPTIONAL packages have not been found:
+1> [CMake] 
+1> [CMake]  * realsense2
+1> [CMake]  * Structure
+1> [CMake] 
+1> [CMake] -- Configuring done
+1> [CMake] CMake Warning (dev) in D:\Bladesense\badslam\CMakeLists.txt:
+1> [CMake]   Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+1> [CMake]   empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+1> [CMake]   for policy details.  Use the cmake_policy command to set the policy and
+1> [CMake]   suppress this warning.
+1> [CMake] 
+1> [CMake]   CUDA_ARCHITECTURES is empty for target "libvis_cuda".
+1> [CMake] This warning is for project developers.  Use -Wno-dev to suppress it.
+1> [CMake] 
+1> [CMake] CMake Warning (dev) in applications/badslam/CMakeLists.txt:
+1> [CMake]   Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+1> [CMake]   empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+1> [CMake]   for policy details.  Use the cmake_policy command to set the policy and
+1> [CMake]   suppress this warning.
+1> [CMake] 
+1> [CMake]   CUDA_ARCHITECTURES is empty for target "badslam_baselib".
+1> [CMake] This warning is for project developers.  Use -Wno-dev to suppress it.
+1> [CMake] 
+1> [CMake] -- Generating done
+1> [CMake] CMake Warning (dev) in applications/badslam/CMakeLists.txt:
+1> [CMake]   Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+1> [CMake]   empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+1> [CMake]   for policy details.  Use the cmake_policy command to set the policy and
+1> [CMake]   suppress this warning.
+1> [CMake] 
+1> [CMake]   CUDA_ARCHITECTURES is empty for target "badslam_baselib".
+1> [CMake] This warning is for project developers.  Use -Wno-dev to suppress it.
+1> [CMake] 
+1> [CMake] CMake Warning (dev) in D:\Bladesense\badslam\CMakeLists.txt:
+1> [CMake]   Policy CMP0104 is not set: CMAKE_CUDA_ARCHITECTURES now detected for NVCC,
+1> [CMake]   empty CUDA_ARCHITECTURES not allowed.  Run "cmake --help-policy CMP0104"
+1> [CMake]   for policy details.  Use the cmake_policy command to set the policy and
+1> [CMake]   suppress this warning.
+1> [CMake] 
+1> [CMake]   CUDA_ARCHITECTURES is empty for target "libvis_cuda".
+1> [CMake] This warning is for project developers.  Use -Wno-dev to suppress it.
+1> [CMake] 
+1> [CMake] -- Build files have been written to: D:/Bladesense/badslam/out/build/x64-Debug
+1> Extracted CMake variables.
+1> Extracted source files and headers.
+1> Extracted code model.
+1> Extracted toolchain configurations.
+1> Extracted includes paths.
+1> CMake generation finished.
