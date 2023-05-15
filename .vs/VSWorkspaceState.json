@@ -1,16 +1,4 @@
 {
-  "ExpandedNodes": [
-    "",
-    "\\applications",
-    "\\applications\\badslam",
-    "\\applications\\badslam\\src",
-    "\\applications\\badslam\\src\\badslam",
-    "\\libvis",
-    "\\libvis\\src",
-    "\\libvis\\src\\libvis"
-  ],
-  "SelectedNode": "\\CMakeLists.txt",
-  "PreviewInSolutionExplorer": false,
   "OutputFoldersPerTargetSystem": {
     "Local Machine": [
       "out\\build\\x64-Debug",

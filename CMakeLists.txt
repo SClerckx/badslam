@@ -3,6 +3,7 @@ project(libvis LANGUAGES C CXX)
 
 # Enable C++14 globally
 set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Support IDEs: https://cliutils.gitlab.io/modern-cmake/chapters/features/ides.html
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
