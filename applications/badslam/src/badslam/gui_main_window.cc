@@ -1584,6 +1584,7 @@ void MainWindow::WorkerThreadMain() {
         config_.k4a_exposure,
         config_.k4a_record_path.c_str());
     live_input = 2;
+    spect_input.Start();
   } else {
     if (!ReadTUMRGBDDatasetAssociatedAndCalibrated(
             dataset_folder_path_.c_str(),

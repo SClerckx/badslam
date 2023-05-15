@@ -51,8 +51,6 @@ namespace vis {
     }
 
     void SpectInputThread::Start() {
-        
-
         // Start thread
         exit_ = false;
         thread_.reset(new thread(std::bind(&SpectInputThread::ThreadMain, this)));
@@ -63,11 +61,12 @@ namespace vis {
     }
 
     void SpectInputThread::ThreadMain() {
-        void run_command()
-        {
+
+        auto run_command = []() {
             std::string command = "\"D:\\Bladesense\\SpectacularAI SDK\\Windows\\bin\\vio_jsonl.exe\" > " + PIPE_NAME;
             std::system(command.c_str());
-        }
+        };
+
         HANDLE hPipe = CreateNamedPipe(
             PIPE_NAME.c_str(),
             PIPE_ACCESS_INBOUND,
@@ -89,7 +88,7 @@ namespace vis {
         // Connect to the named pipe
         BOOL connected = ConnectNamedPipe(hPipe, NULL) ? TRUE : (GetLastError() == ERROR_PIPE_CONNECTED);
 
-        if (!connected)
+        if (exit_)
         {
             CloseHandle(hPipe);
             std::cerr << "Error connecting to named pipe" << std::endl;
@@ -102,6 +101,13 @@ namespace vis {
         std::string accumulated_data;
         while (ReadFile(hPipe, buffer, sizeof(buffer) - 1, &bytesRead, NULL) != FALSE)
         {
+            if (!thread_) {
+                // Disconnect and close the named pipe
+                DisconnectNamedPipe(hPipe);
+                CloseHandle(hPipe);
+                return;
+            }
+
             buffer[bytesRead] = '\0';
             accumulated_data += buffer;
 
@@ -122,11 +128,12 @@ namespace vis {
                     json j = json::parse(json_str);
 
                     // Access elements of the JSON object
-                    double x_acc = j["acceleration"]["x"];
-                    double y_acc = j["acceleration"]["y"];
-                    double z_acc = j["acceleration"]["z"];
+                    Vec3f position;
+                    position[0] = (j)["position"]["x"];
+                    position[1] = (j)["position"]["y"];
+                    position[2] = (j)["position"]["z"];
 
-                    std::cout << "Acceleration: (" << x_acc << ", " << y_acc << ", " << z_acc << ")\n";
+                    std::cout << "Acceleration: (" << position[0] << ", " << position[1] << ", " << position[2] << ")\n";
                 }
                 catch (const json::exception& e)
                 {
@@ -141,10 +148,6 @@ namespace vis {
                 end_pos = accumulated_data.find_first_of("}", start_pos);
             }
         }
-
-        // Disconnect and close the named pipe
-        DisconnectNamedPipe(hPipe);
-        CloseHandle(hPipe);
     }
 
     

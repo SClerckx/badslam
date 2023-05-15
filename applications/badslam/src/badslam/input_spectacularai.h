@@ -37,12 +37,15 @@
 #include <libvis/libvis.h>
 #include "libvis/logging.h"
 #include <functional>
+#include <libvis/sophus.h>
+#include <libvis/eigen.h>
 
 #include <iostream>
 #include <thread>
 #include <future>
 #include <windows.h>
 #include <nlohmann/json.hpp>
+
 
 
 namespace vis {
@@ -63,6 +66,8 @@ namespace vis {
         atomic<bool> exit_;
 
         unique_ptr<thread> thread_;
+
+        vector<Vec3f> vio_trajectory;
     };
 
 }

@@ -182,6 +182,9 @@ class BadSlam {
   
   // Access to the RGBDVideo.
   inline RGBDVideo<Vec3u8, u16>* rgbd_video() const { return rgbd_video_; };
+
+  //Access to the SpectacularAI trajectory
+  inline vector<Vec3f>* vio_trajectory() const { return vio_trajectory_; };
   
   inline Keyframe* base_kf() const { return base_kf_; }
   void SetBaseKF(Keyframe* kf);
@@ -354,6 +357,8 @@ class BadSlam {
   RGBDVideo<Vec3u8, u16>* rgbd_video_;
   // Index of the last frame in rgbd_video_ for which the pose has been set.
   std::atomic<int> last_frame_index_;
+
+  vector<Vec3f>* vio_trajectory_;
   
   shared_ptr<BadSlamRenderWindow> render_window_;
   OpenGLContext* opengl_context_;

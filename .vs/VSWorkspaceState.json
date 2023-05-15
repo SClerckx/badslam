@@ -21,6 +21,6 @@
     "\\libvis\\src",
     "\\libvis\\src\\libvis"
   ],
-  "SelectedNode": "\\CMakePresetsDISABLED.json",
+  "SelectedNode": "\\applications\\badslam\\src\\badslam\\input_spectacularai.cc",
   "PreviewInSolutionExplorer": false
 }
