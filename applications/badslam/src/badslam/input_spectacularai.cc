@@ -133,7 +133,7 @@ namespace vis {
                     position[1] = (j)["position"]["y"];
                     position[2] = (j)["position"]["z"];
 
-                    std::cout << "Acceleration: (" << position[0] << ", " << position[1] << ", " << position[2] << ")\n";
+                    std::cout << "Position: (" << position[0] << ", " << position[1] << ", " << position[2] << ")\n";
                 }
                 catch (const json::exception& e)
                 {
