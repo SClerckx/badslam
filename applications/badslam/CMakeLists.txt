@@ -203,7 +203,12 @@ if (CMAKE_CUDA_COMPILER)
     ${X11_LIBRARIES}
     ${Boost_LIBRARIES}
   )
+<<<<<<< Updated upstream
   
+=======
+  message(STATUS "Linking boost libraries ${Boost_LIBRARIES}")
+  target_link_libraries(badslam PRIVATE nlohmann_json nlohmann_json::nlohmann_json)
+>>>>>>> Stashed changes
   
   # Unit test.
   add_executable(badslam_test

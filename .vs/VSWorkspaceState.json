@@ -16,6 +16,10 @@
     "\\libvis\\src",
     "\\libvis\\src\\libvis"
   ],
+<<<<<<< Updated upstream
   "SelectedNode": "\\applications\\badslam\\src\\badslam\\bad_slam.h",
+=======
+  "SelectedNode": "\\CMakeLists.txt",
+>>>>>>> Stashed changes
   "PreviewInSolutionExplorer": false
 }
