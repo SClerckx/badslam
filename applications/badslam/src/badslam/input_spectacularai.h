@@ -37,7 +37,6 @@
 #include <libvis/libvis.h>
 #include "libvis/logging.h"
 #include <functional>
-#include <libvis/sophus.h>
 #include <libvis/eigen.h>
 
 #include <iostream>
@@ -55,7 +54,7 @@ namespace vis {
     public:
         ~SpectInputThread();
 
-        void Start();
+        void Start(vector<Vec3f>* vio_trajectory, std::mutex* vio_trajectory_mutex);
 
         void GetNextFrame();
 
@@ -67,7 +66,9 @@ namespace vis {
 
         unique_ptr<thread> thread_;
 
-        vector<Vec3f> vio_trajectory;
+        vector<Vec3f>* vio_trajectory_; //must be read and set thread safe
+
+        std::mutex* vio_trajectory_mutex_;
     };
 
 }

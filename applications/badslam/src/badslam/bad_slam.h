@@ -71,7 +71,8 @@ class BadSlam {
   BadSlam(const BadSlamConfig& config,
           RGBDVideo<Vec3u8, u16>* rgbd_video,
           const shared_ptr<BadSlamRenderWindow>& render_window,
-          OpenGLContext* opengl_context);
+          OpenGLContext* opengl_context,
+          vector<Vec3f>* vio_trajectory);
   
   // Destructor. Waits for the BA thread to exit in the parallel-BA case.
   ~BadSlam();
@@ -359,6 +360,7 @@ class BadSlam {
   std::atomic<int> last_frame_index_;
 
   vector<Vec3f>* vio_trajectory_;
+  vector<Vec3f> vio_trajectory_copy;
   
   shared_ptr<BadSlamRenderWindow> render_window_;
   OpenGLContext* opengl_context_;

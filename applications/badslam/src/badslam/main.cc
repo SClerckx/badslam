@@ -624,7 +624,7 @@ int LIBVIS_QT_MAIN(int argc, char** argv) {
   }
   
   unique_ptr<BadSlam> bad_slam(new BadSlam(bad_slam_config, &rgbd_video,
-                                           render_window, nullptr));
+                                           render_window, nullptr, nullptr)); //TODO: Check this
   
   if (!import_calibration_path.empty()) {
     if (!LoadCalibration(&bad_slam->direct_ba(), import_calibration_path)) {

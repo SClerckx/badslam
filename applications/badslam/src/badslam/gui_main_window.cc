@@ -1584,7 +1584,7 @@ void MainWindow::WorkerThreadMain() {
         config_.k4a_exposure,
         config_.k4a_record_path.c_str());
     live_input = 2;
-    spect_input.Start();
+    spect_input.Start(&vio_trajectory_, &vio_trajectory_mutex_);
   } else {
     if (!ReadTUMRGBDDatasetAssociatedAndCalibrated(
             dataset_folder_path_.c_str(),
@@ -1722,7 +1722,7 @@ void MainWindow::WorkerThreadMain() {
   }
   
   bad_slam_.reset(new BadSlam(config_, &rgbd_video_,
-                              render_window_, &opengl_context_2));
+                              render_window_, &opengl_context_2, &vio_trajectory_));
   bad_slam_set_ = true;
   
   if (!import_calibration_path_.empty()) {

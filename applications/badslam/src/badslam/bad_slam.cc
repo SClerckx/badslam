@@ -54,7 +54,8 @@ BadSlam::BadSlam(
     const BadSlamConfig& config,
     RGBDVideo<Vec3u8, u16>* rgbd_video,
     const shared_ptr<BadSlamRenderWindow>& render_window,
-    OpenGLContext* opengl_context)
+    OpenGLContext* opengl_context,
+    vector<Vec3f>* vio_trajectory)
     : pairwise_tracking_buffers_(rgbd_video->depth_camera()->width(),
                                  rgbd_video->depth_camera()->height(),
                                  config.num_scales),
@@ -66,7 +67,8 @@ BadSlam::BadSlam(
       last_frame_index_(0),
       render_window_(render_window),
       opengl_context_(opengl_context),
-      config_(config) {
+      config_(config),
+      vio_trajectory_(vio_trajectory)  {
   valid_ = true;
   
   // Initialize CUDA stream(s).
@@ -321,12 +323,12 @@ void BadSlam::UpdateOdometryVisualization(
   for (int i = 0; i <= frame_index; ++ i) {
     estimated_trajectory[i] = rgbd_video_->depth_frame(i)->global_T_frame().translation();
   }
+  std::cout << estimated_trajectory[frame_index];
   
-  vector<Vec3f> vio_trajectory(frame_index + 1);
-  Vec3f offset;
-  offset << 1, 1, 1;
-  for (int i = 0; i <= frame_index; ++i) {
-      vio_trajectory[i] = rgbd_video_->depth_frame(i)->global_T_frame().translation() + offset;
+  int vio_trajectory_len = vio_trajectory_->size();
+  vector<Vec3f> vio_trajectory_copy(vio_trajectory_len);
+  for (int i = 0; i < vio_trajectory_len; ++ i) {
+      vio_trajectory_copy[i] = (*vio_trajectory_)[i];
   }
 
   // If BA is running in parallel, update the queued keyframes here.
@@ -353,7 +355,7 @@ void BadSlam::UpdateOdometryVisualization(
   }
   render_window_->SetCurrentFramePoseNoLock(rgbd_video_->depth_frame(frame_index)->global_T_frame().matrix());
   render_window_->SetEstimatedTrajectoryNoLock(std::move(estimated_trajectory));
-  render_window_->SetVIOTrajectoryNoLock(std::move(vio_trajectory));
+  render_window_->SetVIOTrajectoryNoLock(std::move(vio_trajectory_copy));
   
   render_mutex_lock.unlock();
   

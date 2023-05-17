@@ -184,6 +184,9 @@ class MainWindow : public QMainWindow {
   unique_ptr<BadSlam> bad_slam_;
   RGBDVideo<Vec3u8, u16> rgbd_video_;
   std::mutex rgbd_video_mutex_;
+
+  vector<Vec3f> vio_trajectory_;
+  std::mutex vio_trajectory_mutex_;
   
   OpenGLContext opengl_context;  // context for the main thread
   OpenGLContext opengl_context_2;  // context for the BA thread

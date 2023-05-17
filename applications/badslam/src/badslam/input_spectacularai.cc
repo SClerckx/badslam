@@ -50,9 +50,11 @@ namespace vis {
 
     }
 
-    void SpectInputThread::Start() {
+    void SpectInputThread::Start(vector<Vec3f>* vio_trajectory, std::mutex* vio_trajectory_mutex) {
         // Start thread
         exit_ = false;
+        vio_trajectory_ = vio_trajectory;
+        vio_trajectory_mutex_ = vio_trajectory_mutex;
         thread_.reset(new thread(std::bind(&SpectInputThread::ThreadMain, this)));
     }
 
@@ -122,22 +124,31 @@ namespace vis {
 
                 //std::cout << "pure string: " << json_str << "end pure string";
 
+                bool jsonSucces = false;
+                Vec3f position;
                 try
                 {
                     // Parse the JSON object
                     json j = json::parse(json_str);
 
                     // Access elements of the JSON object
-                    Vec3f position;
                     position[0] = (j)["position"]["x"];
                     position[1] = (j)["position"]["y"];
                     position[2] = (j)["position"]["z"];
 
                     std::cout << "Position: (" << position[0] << ", " << position[1] << ", " << position[2] << ")\n";
+                    jsonSucces = true;
                 }
                 catch (const json::exception& e)
                 {
-                    std::cerr << "Error parsing JSON: " << e.what() << std::endl;
+                    std::cerr << "Error parsing JSON: " << e.what() << '\n';
+                }
+
+                if (jsonSucces) 
+                {
+                    vio_trajectory_mutex_->lock();
+                    vio_trajectory_->push_back(position);
+                    vio_trajectory_mutex_->unlock();
                 }
 
                 // Remove the parsed JSON object from the accumulated data
