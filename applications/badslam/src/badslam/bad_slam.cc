@@ -323,7 +323,7 @@ void BadSlam::UpdateOdometryVisualization(
   for (int i = 0; i <= frame_index; ++ i) {
     estimated_trajectory[i] = rgbd_video_->depth_frame(i)->global_T_frame().translation();
   }
-  std::cout << estimated_trajectory[frame_index];
+  //std::cout << estimated_trajectory[frame_index];
   
   int vio_trajectory_len = vio_trajectory_->size();
   vector<Vec3f> vio_trajectory_copy(vio_trajectory_len);
