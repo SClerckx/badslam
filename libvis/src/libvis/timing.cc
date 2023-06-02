@@ -99,6 +99,32 @@ double Timer::GetTimeSinceStart() {
   return seconds;
 }
 
+uint64_t Timer::GetTimeSinceStartNanoseconds() {
+    CHECK(timing_) << "GetTimeSinceStartNanoseconds() called on a stopped timer";
+    chrono::steady_clock::time_point now = chrono::steady_clock::now();
+    uint64_t nanoseconds = chrono::duration<uint64_t, nano>(now - start_time_).count();
+    return nanoseconds;
+}
+
+/* Better C++17 Solution
+template<typename T>
+std::variant<double, uint64_t> Timer::GetTimeSinceStart() {
+    CHECK(timing_) << "GetTimeSinceStart() called on a stopped timer";
+    chrono::steady_clock::time_point now = chrono::steady_clock::now();
+
+    if constexpr (std::is_same<T, double>::value) {
+        double seconds = 1e-9 * chrono::duration<double, nano>(now - start_time_).count();
+        return seconds;
+    }
+    else if constexpr (std::is_same<T, uint64_t>::value) {
+        uint64_t nanoseconds = chrono::duration_cast<chrono::nanoseconds>(now - start_time_).count();
+        return nanoseconds;
+    }
+    else {
+        throw std::invalid_argument("Invalid type specified. Only double or uint64_t allowed.");
+    }
+}*/
+
 // Algorithm from:
 // https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance#Online_algorithm
 struct TimerMapValue {
